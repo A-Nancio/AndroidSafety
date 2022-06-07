@@ -1,0 +1,118 @@
+[{
+  "name": "Android Notifications",
+  "packages": ["android.app.NotificationManager"]
+},
+{
+  "name": "Base64 Encode",
+  "packages": ["android.util.Base64"]
+},
+{
+  "name": "Base64 Decode",
+  "packages": ["android.util.Base64"]
+},
+{
+  "name": "Crypto",
+  "packages": ["javax.crypto.Cipher",
+  "javax.crypto.CipherInputStream",
+  "javax.crypto.CipherOutputStream",
+  "javax.crypto.NoSuchPaddingException",
+  "javax.crypto.spec.SecretKeySpec",
+  "javax.crypto.BadPaddingException",
+  "javax.crypto.IllegalBlockSizeException",
+  "javax.crypto.Mac",
+  "javax.crypto.spec.SecretKeySpec"]
+},
+{
+  "name": "Dynamic Class and Dexloading",
+  "packages": ["dalvik.system.DexClassLoader"]
+},{
+  "name": "Get Network Interface information",
+  "packages": ["dalvik.system.DexClassLoader"]
+},
+{
+  "name": "Get WiFi Details", 
+  "packages": [
+    "android.net.wifi.WifiManager",
+    "android.net.wifi.WifiManager.getConnectionInfo"]
+},
+{ 
+  "name": "GPS Location",
+  "packages": ["android.location.Geocoder",
+    "android.location.Location",
+    "android.location.LocationManager"]
+},
+{
+  "name": "HTTP Connection",
+  "packages": [
+    "java.net.HttpURLConnection",
+    "com.adobe.air.wand.connection.Connection",
+    "org.apache.http.client.methods.HttpGet",
+    "org.apache.http.conn.util.InetAddressUtils",
+    "org.apache.http.impl.client.DefaultHttpClient"]
+},
+{
+  "name": "Inter Process Communication",
+  "packages": [
+    "android.content.Intent",
+    "android.content.IntentFilter",
+    "android.app.IntentService",
+    "android.os.IBinder",
+    "android.app.PendingIntent"]
+},
+{
+  "name": "Java Reflection",
+  "packages": [
+    "java.lang.reflect.Field",
+    "java.lang.reflect.Method"]
+},
+{
+ "name": "Kill Process",
+ "packages": ["android.os.Process.killProcess"]
+},
+{
+  "name": "Loading Native Code (Shared Library)",
+  "packages": ["Java.Lang.System.load"]
+},
+{
+  "name": "Local File I/O Operations",
+  "packages": ["android.content.SharedPreferences.Editor"]
+},
+{
+  "name": "Query Database of SMS, Contacts, etc",
+  "packages": ["android.content.ContentResolver"]
+},
+{
+  "name": "Starting Activity",
+  "packages": ["android.content.Context.startActivity"]
+},
+{
+  "name": "Starting Service",
+  "packages": [
+    "android.content.Context.startService",
+    "android.content.Context.unbindService"]
+},
+{
+  "name": "TCP Server Socket",
+  "packages": ["java.net.ServerSocket"]
+},
+{
+  "name": "TCP Socket",
+ "packages": [
+    "java.net.ServerSocket", 
+    "java.net.Socket",
+    "java.net.InetSocketAddress",
+    "java.net.SocketException",  
+    "org.java_websocket.WebSocket",
+    "org.java_websocket.server.WebSocketServer"]
+},
+{
+  "name": "WebView GET Request",
+  "packages": [
+    "android.webkit.SslErrorHandler",
+    "android.webkit.URLUtil",
+    "android.webkit.ValueCallback",
+    "android.webkit.WebChromeClient",
+    "android.webkit.WebSettings",
+    "android.webkit.WebView",
+    "android.webkit.WebViewClient"]
+}]

@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.example"
+		module="androidsafety$sources"
+		revision="0.1.0-SNAPSHOT"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20220605210858"/>
+	<dependencies>
+		<module organisation="org.scalatest" name="scalatest_2.12">
+			<revision name="3.0.5" status="release" pubdate="20180129132347" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="44">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4732" time="0" location="/home/nancio/.ivy2/cache/org.scalatest/scalatest_2.12/ivy-3.0.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.5/scalatest_2.12-3.0.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="3.0.5" rev-constraint-default="3.0.5" rev-constraint-dynamic="3.0.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalatest_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1641808" time="0" location="/home/nancio/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.5/scalatest_2.12-3.0.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalactic" name="scalactic_2.12">
+			<revision name="3.0.5" status="release" pubdate="20180129132214" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="45">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2967" time="0" location="/home/nancio/.ivy2/cache/org.scalactic/scalactic_2.12/ivy-3.0.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalactic/scalactic_2.12/3.0.5/scalactic_2.12-3.0.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="3.0.5" rev-constraint-default="3.0.5" rev-constraint-dynamic="3.0.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalactic_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="201169" time="0" location="/home/nancio/.ivy2/cache/org.scalactic/scalactic_2.12/srcs/scalactic_2.12-3.0.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalactic/scalactic_2.12/3.0.5/scalactic_2.12-3.0.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.circe" name="circe-generic_2.12">
+			<revision name="0.7.0" status="release" pubdate="20170117162914" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="37">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3536" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-generic_2.12/ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/circe/circe-generic_2.12/0.7.0/circe-generic_2.12-0.7.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://circe.github.io/circe/api/"/>
+				<artifacts>
+					<artifact name="circe-generic_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="12537" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-generic_2.12/srcs/circe-generic_2.12-0.7.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/circe/circe-generic_2.12/0.7.0/circe-generic_2.12-0.7.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.chuusai" name="shapeless_2.12">
+			<revision name="2.3.2" status="release" pubdate="20161102095049" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/milessabin/shapeless" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="40">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3226" time="0" location="/home/nancio/.ivy2/cache/com.chuusai/shapeless_2.12/ivy-2.3.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.2/shapeless_2.12-2.3.2.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.3.2" rev-constraint-default="2.3.2" rev-constraint-dynamic="2.3.2" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="shapeless_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="163673" time="0" location="/home/nancio/.ivy2/cache/com.chuusai/shapeless_2.12/srcs/shapeless_2.12-2.3.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.2/shapeless_2.12-2.3.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="framework_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112833" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="32">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3612" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/framework_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/framework_2.12/4.0.0/framework_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="framework_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1233" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/framework_2.12/srcs/framework_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/framework_2.12/4.0.0/framework_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="architecture-validation_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112817" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="31">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3348" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/architecture-validation_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/architecture-validation_2.12/4.0.0/architecture-validation_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="architecture-validation_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="28403" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/architecture-validation_2.12/srcs/architecture-validation_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/architecture-validation_2.12/4.0.0/architecture-validation_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="three-address-code_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112752" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="25">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3335" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/three-address-code_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/three-address-code_2.12/4.0.0/three-address-code_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="three-address-code_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="296611" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/three-address-code_2.12/srcs/three-address-code_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/three-address-code_2.12/4.0.0/three-address-code_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.circe" name="circe-parser_2.12">
+			<revision name="0.7.0" status="release" pubdate="20170117162919" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="19">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3079" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-parser_2.12/ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/circe/circe-parser_2.12/0.7.0/circe-parser_2.12-0.7.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://circe.github.io/circe/api/"/>
+				<artifacts>
+					<artifact name="circe-parser_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="826" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-parser_2.12/srcs/circe-parser_2.12-0.7.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/circe/circe-parser_2.12/0.7.0/circe-parser_2.12-0.7.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="bytecode-assembler_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112804" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="18">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3490" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-assembler_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/bytecode-assembler_2.12/4.0.0/bytecode-assembler_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bytecode-assembler_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="39207" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-assembler_2.12/srcs/bytecode-assembler_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/bytecode-assembler_2.12/4.0.0/bytecode-assembler_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="bytecode-creator_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112732" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="23">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3317" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-creator_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/bytecode-creator_2.12/4.0.0/bytecode-creator_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bytecode-creator_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6534" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-creator_2.12/srcs/bytecode-creator_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/bytecode-creator_2.12/4.0.0/bytecode-creator_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="dependencies-extraction-library_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112747" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="17">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3374" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/dependencies-extraction-library_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/dependencies-extraction-library_2.12/4.0.0/dependencies-extraction-library_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="dependencies-extraction-library_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="17172" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/dependencies-extraction-library_2.12/srcs/dependencies-extraction-library_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/dependencies-extraction-library_2.12/4.0.0/dependencies-extraction-library_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="abstract-interpretation-framework_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112711" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="43">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3370" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/abstract-interpretation-framework_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/abstract-interpretation-framework_2.12/4.0.0/abstract-interpretation-framework_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="abstract-interpretation-framework_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="397552" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/abstract-interpretation-framework_2.12/srcs/abstract-interpretation-framework_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/abstract-interpretation-framework_2.12/4.0.0/abstract-interpretation-framework_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="bytecode-disassembler_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112659" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3334" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-disassembler_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/bytecode-disassembler_2.12/4.0.0/bytecode-disassembler_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bytecode-disassembler_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="78966" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-disassembler_2.12/srcs/bytecode-disassembler_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/bytecode-disassembler_2.12/4.0.0/bytecode-disassembler_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.circe" name="circe-jawn_2.12">
+			<revision name="0.7.0" status="release" pubdate="20170117162901" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="12">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3081" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-jawn_2.12/ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/circe/circe-jawn_2.12/0.7.0/circe-jawn_2.12-0.7.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://circe.github.io/circe/api/"/>
+				<artifacts>
+					<artifact name="circe-jawn_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2039" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-jawn_2.12/srcs/circe-jawn_2.12-0.7.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/circe/circe-jawn_2.12/0.7.0/circe-jawn_2.12-0.7.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.circe" name="circe-core_2.12">
+			<revision name="0.7.0" status="release" pubdate="20170117162911" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="36">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3080" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-core_2.12/ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/circe/circe-core_2.12/0.7.0/circe-core_2.12-0.7.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://circe.github.io/circe/api/"/>
+				<artifacts>
+					<artifact name="circe-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="37283" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-core_2.12/srcs/circe-core_2.12-0.7.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/circe/circe-core_2.12/0.7.0/circe-core_2.12-0.7.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.typelevel" name="cats-core_2.12">
+			<revision name="0.9.0" status="release" pubdate="20170115233305" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typelevel/cats" extra-info.apiURL="http://typelevel.org/cats/api/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3494" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-core_2.12/ivy-0.9.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/0.9.0/cats-core_2.12-0.9.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.9.0" rev-constraint-default="0.9.0" rev-constraint-dynamic="0.9.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="http://typelevel.org/cats/api/"/>
+				<artifacts>
+					<artifact name="cats-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="135323" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-core_2.12/srcs/cats-core_2.12-0.9.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/0.9.0/cats-core_2.12-0.9.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.circe" name="circe-numbers_2.12">
+			<revision name="0.7.0" status="release" pubdate="20170117162819" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="29">
+				<license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3047" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-numbers_2.12/ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/circe/circe-numbers_2.12/0.7.0/circe-numbers_2.12-0.7.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://circe.github.io/circe/api/"/>
+				<artifacts>
+					<artifact name="circe-numbers_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3772" time="0" location="/home/nancio/.ivy2/cache/io.circe/circe-numbers_2.12/srcs/circe-numbers_2.12-0.7.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/circe/circe-numbers_2.12/0.7.0/circe-numbers_2.12-0.7.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.typelevel" name="cats-kernel_2.12">
+			<revision name="0.9.0" status="release" pubdate="20170115233107" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typelevel/cats" extra-info.apiURL="http://typelevel.org/cats/api/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="2777" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-kernel_2.12/ivy-0.9.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/0.9.0/cats-kernel_2.12-0.9.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.9.0" rev-constraint-default="0.9.0" rev-constraint-dynamic="0.9.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="http://typelevel.org/cats/api/"/>
+				<artifacts>
+					<artifact name="cats-kernel_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="33234" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-kernel_2.12/srcs/cats-kernel_2.12-0.9.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/0.9.0/cats-kernel_2.12-0.9.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.googlecode.json-simple" name="json-simple">
+			<revision name="1.1" status="release" pubdate="20090812170513" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/json-simple/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="6">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2533" time="0" location="/home/nancio/.ivy2/cache/com.googlecode.json-simple/json-simple/ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="json-simple" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="17538" time="0" location="/home/nancio/.ivy2/cache/com.googlecode.json-simple/json-simple/srcs/json-simple-1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.typelevel" name="cats-macros_2.12">
+			<revision name="0.9.0" status="release" pubdate="20170115233024" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typelevel/cats" extra-info.apiURL="http://typelevel.org/cats/api/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3078" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-macros_2.12/ivy-0.9.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/0.9.0/cats-macros_2.12-0.9.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.9.0" rev-constraint-default="0.9.0" rev-constraint-dynamic="0.9.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="http://typelevel.org/cats/api/"/>
+				<artifacts>
+					<artifact name="cats-macros_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1199" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/cats-macros_2.12/srcs/cats-macros_2.12-0.9.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/0.9.0/cats-macros_2.12-0.9.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.typelevel" name="machinist_2.12">
+			<revision name="0.6.1" status="release" pubdate="20161029161418" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/typelevel/machinist" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="41">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="2785" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/machinist_2.12/ivy-0.6.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.1/machinist_2.12-0.6.1.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.6.1" rev-constraint-default="0.6.1" rev-constraint-dynamic="0.6.1" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="machinist_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3546" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/machinist_2.12/srcs/machinist_2.12-0.6.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.1/machinist_2.12-0.6.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.mpilquist" name="simulacrum_2.12">
+			<revision name="0.10.0" status="release" pubdate="20161103141330" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/mpilquist/simulacrum" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="20">
+				<license name="Three-clause BSD-style" url="https://github.com/mpilquist/simulacrum/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="3140" time="0" location="/home/nancio/.ivy2/cache/com.github.mpilquist/simulacrum_2.12/ivy-0.10.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/mpilquist/simulacrum_2.12/0.10.0/simulacrum_2.12-0.10.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.10.0" rev-constraint-default="0.10.0" rev-constraint-dynamic="0.10.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="simulacrum_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6576" time="0" location="/home/nancio/.ivy2/cache/com.github.mpilquist/simulacrum_2.12/srcs/simulacrum_2.12-0.10.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/mpilquist/simulacrum_2.12/0.10.0/simulacrum_2.12-0.10.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.12.15" status="release" pubdate="20210914202816" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.scala-lang.org/" extra-info.apiURL="https://www.scala-lang.org/api/2.12.15/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2835" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.15.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.15/scala-reflect-2.12.15.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.12.15" rev-constraint-default="2.12.15" rev-constraint-dynamic="2.12.15" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://www.scala-lang.org/api/2.12.15/"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="628431" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.15-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.15/scala-reflect-2.12.15-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.12.15" status="release" pubdate="20210914203147" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.scala-lang.org/" extra-info.apiURL="https://www.scala-lang.org/api/2.12.15/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="34">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2662" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.15.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.15/scala-library-2.12.15.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.12.15" rev-constraint-default="2.12.15" rev-constraint-dynamic="2.12.15" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://www.scala-lang.org/api/2.12.15/"/>
+				<artifacts>
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1061472" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.15-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.15/scala-library-2.12.15-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="bytecode-representation_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112624" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3834" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-representation_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/bytecode-representation_2.12/4.0.0/bytecode-representation_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bytecode-representation_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="678577" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-representation_2.12/srcs/bytecode-representation_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/bytecode-representation_2.12/4.0.0/bytecode-representation_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12">
+			<revision name="1.1.2" status="release" pubdate="20190405225736" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2927" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.1.2/scala-parser-combinators_2.12-1.1.2.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-parser-combinators_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="48135" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.1.2/scala-parser-combinators_2.12-1.1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="bytecode-infrastructure_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112613" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="38">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3470" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-infrastructure_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/bytecode-infrastructure_2.12/4.0.0/bytecode-infrastructure_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="bytecode-infrastructure_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="99469" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/bytecode-infrastructure_2.12/srcs/bytecode-infrastructure_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/bytecode-infrastructure_2.12/4.0.0/bytecode-infrastructure_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-text">
+			<revision name="1.9" status="release" pubdate="20200721214048" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://commons.apache.org/proper/commons-text" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="33">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="17260" time="0" location="/home/nancio/.ivy2/cache/org.apache.commons/commons-text/ivy-1.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-text/1.9/commons-text-1.9.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.9" rev-constraint-default="1.9" rev-constraint-dynamic="1.9" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-text" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="248264" time="0" location="/home/nancio/.ivy2/cache/org.apache.commons/commons-text/srcs/commons-text-1.9-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-text/1.9/commons-text-1.9-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-lang3">
+			<revision name="3.11" status="release" pubdate="20200712143202" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://commons.apache.org/proper/commons-lang/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="26">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="17920" time="0" location="/home/nancio/.ivy2/cache/org.apache.commons/commons-lang3/ivy-3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="3.11" rev-constraint-default="3.11" rev-constraint-dynamic="3.11" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-lang3" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="643250" time="0" location="/home/nancio/.ivy2/cache/org.apache.commons/commons-lang3/srcs/commons-lang3-3.11-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="static-analysis-infrastructure_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112607" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="3344" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/static-analysis-infrastructure_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/static-analysis-infrastructure_2.12/4.0.0/static-analysis-infrastructure_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="static-analysis-infrastructure_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="71303" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/static-analysis-infrastructure_2.12/srcs/static-analysis-infrastructure_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/static-analysis-infrastructure_2.12/4.0.0/static-analysis-infrastructure_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="de.opal-project" name="common_2.12">
+			<revision name="4.0.0" status="release" pubdate="20210507112557" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.opal-project.de" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<license name="BSD-2-Clause" url="https://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="no" details="" size="4144" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/common_2.12/ivy-4.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/de/opal-project/common_2.12/4.0.0/common_2.12-4.0.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="4.0.0" rev-constraint-default="4.0.0" rev-constraint-dynamic="4.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="common_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="597229" time="0" location="/home/nancio/.ivy2/cache/de.opal-project/common_2.12/srcs/common_2.12-4.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/de/opal-project/common_2.12/4.0.0/common_2.12-4.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="it.unimi.dsi" name="fastutil">
+			<revision name="8.5.4" status="release" pubdate="20210328142626" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://fastutil.di.unimi.it/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3319" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil/ivy-8.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil/8.5.4/fastutil-8.5.4.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="8.5.4" rev-constraint-default="8.5.4" rev-constraint-dynamic="8.5.4" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="fastutil" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4056612" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil/srcs/fastutil-8.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil/8.5.4/fastutil-8.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="it.unimi.dsi" name="fastutil-extra">
+			<revision name="8.5.4" status="release" pubdate="20210328142528" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://fastutil.di.unimi.it/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="35">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3300" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil-extra/ivy-8.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil-extra/8.5.4/fastutil-extra-8.5.4.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="8.5.4" rev-constraint-default="8.5.4" rev-constraint-dynamic="8.5.4" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="fastutil-extra" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3189013" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil-extra/srcs/fastutil-extra-8.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil-extra/8.5.4/fastutil-extra-8.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="it.unimi.dsi" name="fastutil-core">
+			<revision name="8.5.4" status="release" pubdate="20210328142434" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://fastutil.di.unimi.it/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3162" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil-core/ivy-8.5.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil-core/8.5.4/fastutil-core-8.5.4.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="8.5.4" rev-constraint-default="8.5.4" rev-constraint-dynamic="8.5.4" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="fastutil-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3279259" time="0" location="/home/nancio/.ivy2/cache/it.unimi.dsi/fastutil-core/srcs/fastutil-core-8.5.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/it/unimi/dsi/fastutil-core/8.5.4/fastutil-core-8.5.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.iheart" name="ficus_2.12">
+			<revision name="1.5.0" status="release" pubdate="20200818200330" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://iheartradio.github.io/ficus" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="30">
+				<license name="MIT" url="http://www.opensource.org/licenses/mit-license.html"/>
+				<metadata-artifact status="no" details="" size="3772" time="0" location="/home/nancio/.ivy2/cache/com.iheart/ficus_2.12/ivy-1.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/iheart/ficus_2.12/1.5.0/ficus_2.12-1.5.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.5.0" rev-constraint-default="1.5.0" rev-constraint-dynamic="1.5.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ficus_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="16517" time="0" location="/home/nancio/.ivy2/cache/com.iheart/ficus_2.12/srcs/ficus_2.12-1.5.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/iheart/ficus_2.12/1.5.0/ficus_2.12-1.5.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.typelevel" name="macro-compat_2.12">
+			<revision name="1.1.1" status="release" pubdate="20161102084258" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/milessabin/macro-compat" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="27">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2964" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/macro-compat_2.12/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/typelevel/macro-compat_2.12/1.1.1/macro-compat_2.12-1.1.1.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="macro-compat_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1052" time="0" location="/home/nancio/.ivy2/cache/org.typelevel/macro-compat_2.12/srcs/macro-compat_2.12-1.1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/typelevel/macro-compat_2.12/1.1.1/macro-compat_2.12-1.1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe" name="config">
+			<revision name="1.3.4" status="release" pubdate="20190418135036" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/lightbend/config" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3138" time="0" location="/home/nancio/.ivy2/cache/com.typesafe/config/ivy-1.3.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.4/config-1.3.4.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.3.4" rev-constraint-default="1.3.4" rev-constraint-dynamic="1.3.4" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="176146" time="0" location="/home/nancio/.ivy2/cache/com.typesafe/config/srcs/config-1.3.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.4/config-1.3.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.play" name="play-json_2.12">
+			<revision name="2.9.2" status="release" pubdate="20210104212125" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-json" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="4992" time="0" location="/home/nancio/.ivy2/cache/com.typesafe.play/play-json_2.12/ivy-2.9.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-json_2.12/2.9.2/play-json_2.12-2.9.2.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.9.2" rev-constraint-default="2.9.2" rev-constraint-dynamic="2.9.2" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="play-json_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="58790" time="0" location="/home/nancio/.ivy2/cache/com.typesafe.play/play-json_2.12/srcs/play-json_2.12-2.9.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-json_2.12/2.9.2/play-json_2.12-2.9.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.core" name="jackson-databind">
+			<revision name="2.10.5.1" status="release" pubdate="20201202034750" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="24734" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/ivy-2.10.5.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.5.1/jackson-databind-2.10.5.1.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.10.5.1" rev-constraint-default="2.10.5.1" rev-constraint-dynamic="2.10.5.1" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-databind" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1044615" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/srcs/jackson-databind-2.10.5.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.5.1/jackson-databind-2.10.5.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310">
+			<revision name="2.10.5" status="release" pubdate="20200721041059" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="28">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="30788" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/ivy-2.10.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.10.5/jackson-datatype-jsr310-2.10.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-datatype-jsr310" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="73264" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/srcs/jackson-datatype-jsr310-2.10.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.10.5/jackson-datatype-jsr310-2.10.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jdk8">
+			<revision name="2.10.5" status="release" pubdate="20200721041053" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="22">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="30495" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/ivy-2.10.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.5/jackson-datatype-jdk8-2.10.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-datatype-jdk8" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="22025" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/srcs/jackson-datatype-jdk8-2.10.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.5/jackson-datatype-jdk8-2.10.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.core" name="jackson-annotations">
+			<revision name="2.10.5" status="release" pubdate="20200721023344" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="42">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="8106" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/ivy-2.10.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.5/jackson-annotations-2.10.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-annotations" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="72328" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/srcs/jackson-annotations-2.10.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.5/jackson-annotations-2.10.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.fasterxml.jackson.core" name="jackson-core">
+			<revision name="2.10.5" status="release" pubdate="20200721024242" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/FasterXML/jackson-core" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="23979" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/ivy-2.10.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jackson-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="365057" time="0" location="/home/nancio/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.10.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.play" name="play-functional_2.12">
+			<revision name="2.9.2" status="release" pubdate="20210104212127" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-json" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="24">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2839" time="0" location="/home/nancio/.ivy2/cache/com.typesafe.play/play-functional_2.12/ivy-2.9.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-functional_2.12/2.9.2/play-functional_2.12-2.9.2.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="2.9.2" rev-constraint-default="2.9.2" rev-constraint-dynamic="2.9.2" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="play-functional_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="12756" time="0" location="/home/nancio/.ivy2/cache/com.typesafe.play/play-functional_2.12/srcs/play-functional_2.12-2.9.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-functional_2.12/2.9.2/play-functional_2.12-2.9.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-xml_2.12">
+			<revision name="1.3.0" status="release" pubdate="20200316180015" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="https://scala.github.io/scala-xml/api/1.3.0/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="39">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3431" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/ivy-1.3.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.3.0/scala-xml_2.12-1.3.0.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="1.3.0" rev-constraint-default="1.3.0" rev-constraint-dynamic="1.3.0" callerrev="0.1.0-SNAPSHOT" extra-info.apiURL="https://scala.github.io/scala-xml/api/1.3.0/"/>
+				<artifacts>
+					<artifact name="scala-xml_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="111929" time="0" location="/home/nancio/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.3.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.3.0/scala-xml_2.12-1.3.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.spire-math" name="jawn-parser_2.12">
+			<revision name="0.10.4" status="release" pubdate="20161113040016" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/non/jawn" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="0">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="2879" time="0" location="/home/nancio/.ivy2/cache/org.spire-math/jawn-parser_2.12/ivy-0.10.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4.pom"/>
+				<caller organisation="com.example" name="androidsafety$sources" conf="test, compile, runtime" rev="0.10.4" rev-constraint-default="0.10.4" rev-constraint-dynamic="0.10.4" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jawn-parser_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18474" time="0" location="/home/nancio/.ivy2/cache/org.spire-math/jawn-parser_2.12/srcs/jawn-parser_2.12-0.10.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
