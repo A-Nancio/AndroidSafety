@@ -14,15 +14,20 @@ case class SecurityWarning(
 abstract class  ScanOperation {
   var results = Set[String]() 
 
-  def execute(instruction: MethodInvocationInstruction, callerClass: String): Unit = {
+  def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
     throw new Exception(s"No ${name} scan provided for method access")
   }
-  def execute(instruction: FieldAccess, callerClass: String): Unit = {
+  def execute(instruction: FieldAccess, callerClass: String): Boolean = {
     throw new Exception(s"No ${name} scan provided for field access")
   }
 
-  def execute(instruction: LoadString, callerClass: String): Unit = {
+  def execute(instruction: LoadString, callerClass: String): Boolean = {
     throw new Exception(s"No ${name} scan provided for string constant loading")
+  }
+
+  def register(classFile: String): Unit = {
+    results += classFile
+    //println("Line number: " + lineNumber)
   }
   
   def json: SecurityWarning

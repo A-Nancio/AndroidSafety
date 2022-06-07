@@ -4,11 +4,9 @@ import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.FieldAccess
 
 object ClipboardUsage extends ScanOperation {
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Unit = {
-    if (instruction.declaringClass.toJava == "android.content.ClipboardManager" &&
-        Array("createTempFile").contains(instruction.name)) {
-          results += callerClass
-    }
+  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+    return instruction.declaringClass.toJava == "android.content.ClipboardManager" &&
+        Array("createTempFile").contains(instruction.name)
   }
 
   def json: SecurityWarning = {

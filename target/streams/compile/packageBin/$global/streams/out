@@ -2,8 +2,6 @@
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/AndroidApiAnalysis$anon$exportEncoder$macro$13$1$anon$macro$7$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/AndroidApiAnalysis$anon$exportEncoder$macro$13$1$anon$macro$7$2.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	program/Program$$anonfun$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/Program$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/AndroidApiAnalysis.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/AndroidApiAnalysis.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/CodeAnalysis$anon$exportEncoder$macro$20$1$anon$macro$11$1.class[0m
@@ -50,6 +48,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/scan_operations/TempFile$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/scan_operations/Log$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/scan_operations/Log$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	program/scanners/CodeAnalysis$$anonfun$scan$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/CodeAnalysis$$anonfun$scan$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/scan_operations/Base64.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/target/scala-2.12/classes/program/scanners/scan_operations/Base64.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	program/scanners/scan_operations/Log.class[0m

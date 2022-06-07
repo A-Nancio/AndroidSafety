@@ -4,7 +4,7 @@
 		module="androidsafety$sources"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20220605210858"
+		publication="20220607163313"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

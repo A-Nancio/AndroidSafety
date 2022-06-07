@@ -4,12 +4,9 @@ import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.FieldAccess
 
 object RawQuery extends ScanOperation {
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Unit = {
-    if (instruction.declaringClass.toJava == "android.database.sqlite.SQLiteDatabase" &&
-        Array("rawQuery", "execSQL").contains(instruction.name)) {
-          results += callerClass
-
-    }
+  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+    return instruction.declaringClass.toJava == "android.database.sqlite.SQLiteDatabase" &&
+        Array("rawQuery", "execSQL").contains(instruction.name)
   }
 
   def json: SecurityWarning = {

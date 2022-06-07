@@ -5,11 +5,10 @@ import org.opalj.br.instructions.FieldAccess
 
 
 object ReadWriteStorage extends ScanOperation {  
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Unit = {
+  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
     val declaringClass = instruction.declaringClass.toJava
-    if (declaringClass == "android.os.Environment" && 
-        Array("getExternalStoragePublicDirectory", "getExternalStorageDirectory").contains(instruction.name)) 
-      results += callerClass
+    return declaringClass == "android.os.Environment" && 
+        Array("getExternalStoragePublicDirectory", "getExternalStorageDirectory").contains(instruction.name)
   }
   
   def json: SecurityWarning = {
