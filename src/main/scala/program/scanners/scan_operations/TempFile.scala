@@ -5,7 +5,7 @@ import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.FieldAccess
 
 object TempFile extends ScanOperation {
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+  override def execute(instruction: MethodInvocationInstruction): Boolean = {
     return instruction.declaringClass.toJava == "Java.io.File" &&
         Array("setPrimaryClip").contains(instruction.name)
   }

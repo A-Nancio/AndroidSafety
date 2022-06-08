@@ -5,7 +5,7 @@ import org.opalj.br.instructions.FieldAccess
 
 object WeakNumberGenerator extends ScanOperation {
 
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+  override def execute(instruction: MethodInvocationInstruction): Boolean = {
     return "java.util.Random" == instruction.declaringClass.toJava 
   }
   

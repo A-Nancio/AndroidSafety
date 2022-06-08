@@ -4,7 +4,7 @@ import org.opalj.br.instructions.FieldAccess
 import org.opalj.br.instructions.MethodInvocationInstruction
 
 object Log extends ScanOperation{
-  override def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+  override def execute(instruction: MethodInvocationInstruction): Boolean = {
     var declaringClass = instruction.declaringClass.toJava
     return Array("android.util.Log", "System.out").contains(declaringClass)
   } 

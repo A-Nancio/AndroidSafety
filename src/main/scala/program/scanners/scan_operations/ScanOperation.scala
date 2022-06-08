@@ -14,14 +14,14 @@ case class SecurityWarning(
 abstract class  ScanOperation {
   var results = Set[String]() 
 
-  def execute(instruction: MethodInvocationInstruction, callerClass: String): Boolean = {
+  def execute(instruction: MethodInvocationInstruction): Boolean = {
     throw new Exception(s"No ${name} scan provided for method access")
   }
-  def execute(instruction: FieldAccess, callerClass: String): Boolean = {
+  def execute(instruction: FieldAccess): Boolean = {
     throw new Exception(s"No ${name} scan provided for field access")
   }
 
-  def execute(instruction: LoadString, callerClass: String): Boolean = {
+  def execute(instruction: LoadString): Boolean = {
     throw new Exception(s"No ${name} scan provided for string constant loading")
   }
 

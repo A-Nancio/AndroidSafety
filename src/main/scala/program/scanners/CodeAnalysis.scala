@@ -16,10 +16,12 @@ import org.opalj.br.Code
 object CodeAnalysis {
   val methodScanOperations: Array[ScanOperation] = Array[ScanOperation](
     /*Base64,*/
+    ClipboardUsage,
     Log,
-    WeakNumberGenerator,
+    RawQuery,
     ReadWriteStorage,
-    RawQuery
+    TempFile,
+    WeakNumberGenerator
   )
 
   def scan(code: Code, classFile: String): Unit = {
@@ -28,7 +30,7 @@ object CodeAnalysis {
         
         case methodCall: MethodInvocationInstruction => {
           methodScanOperations.foreach(operation => {
-            if (operation.execute(methodCall, classFile))
+            if (operation.execute(methodCall))
               operation.register(classFile)
           })
         }
