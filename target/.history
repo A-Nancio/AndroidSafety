@@ -110,3 +110,6 @@ run
 exit
 run
 exit
+run
+git status
+exit

@@ -21,27 +21,17 @@ object Program {
       //println("[CLASSFILE]: " + classFile.thisType.toJava)
 
       //check fields
-      classFile.methodBodies.foreach(
-        code => CodeAnalysis.scan(code, classFile.thisType.toJava))
-      //for (method <- classFile.methods) {   //CHANGE FOR LOOP FOR FOR EACH
-      //  //println("\t[METHOD] " + method.name)
-      //  method.body match {
-      //    case None => {/*do nothing*/}
-      //    case Some(code) => {
-      //      CodeAnalysis.scan()
+      classFile.fields.foreach(field => AndroidApiAnalysis.scan(field.fieldType.toJava, classFile.thisType.toJava))
 
-            
-            //
-            //val variable_instructions = instructions.collect{case inst: FieldAccess => inst}
-            //val method_instructions = instructions.collect{case inst: MethodInvocationInstruction => inst}
-       //     //val constant_instructions = instructions.collect{case inst: LoadString => inst}
-       //     //val labeled_instructions = instructions.collect{case inst: LabeledInstruction => inst}
-       //     
-       //   } 
-       // }
-      //}
+      //check code
+      classFile.methodBodies.foreach(code => {
+        CodeAnalysis.scan(code, classFile.thisType.toJava)
+        AndroidApiAnalysis.scan(code, classFile.thisType.toJava)
+      })
+
     }
-    println(CodeAnalysis.export().toString())
+    println(AndroidApiAnalysis.export.toString())
+    println(CodeAnalysis.export.toString())
   }
 
   def main(args: Array[String]): Unit = {

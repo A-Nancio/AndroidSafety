@@ -6,7 +6,6 @@ import io.circe.generic.auto._
 import io.circe.parser._
 
 import scala.collection.mutable.Set
-import AndroidApiAnalysis.ScanApi
 import program.scanners.scan_operations._
 
 import org.opalj.br.instructions.MethodInvocationInstruction

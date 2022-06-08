@@ -1,6 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/nancio/Documents/ist/2_semester/sdt/androidsafety/src/main/scala/program/Program.scala:34:50: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
-[0m[[0m[31merror[0m] [0m[0m required: PartialFunction[org.opalj.br.instructions.Instruction,?][0m
-[0m[[0m[31merror[0m] [0m[0m              val inst = code.collectInstructions{}[0m
-[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/src/main/scala/program/scanners/AndroidApiAnalysis.scala:49:25: not found: type ArrayBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m    val jsonArray = new ArrayBuffer[ApiCategory]()[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/nancio/Documents/ist/2_semester/sdt/AndroidSafety/src/main/scala/program/scanners/AndroidApiAnalysis.scala:53:20: not found: type ArrayBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m    return Encoder[ArrayBuffer[ApiCategory]].apply(jsonArray)[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
