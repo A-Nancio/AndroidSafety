@@ -15,14 +15,14 @@ abstract class  ScanOperation {
   var results = Set[String]() 
 
   def execute(instruction: MethodInvocationInstruction): Boolean = {
-    throw new Exception(s"No ${name} scan provided for method access")
+    throw new Exception(s"No ${name} implementation provided for method access")
   }
   def execute(instruction: FieldAccess): Boolean = {
-    throw new Exception(s"No ${name} scan provided for field access")
+    throw new Exception(s"No ${name} implementation provided for field access")
   }
 
   def execute(instruction: LoadString): Boolean = {
-    throw new Exception(s"No ${name} scan provided for string constant loading")
+    throw new Exception(s"No ${name} implementation provided for string constant loading")
   }
 
   def register(classFile: String): Unit = {
