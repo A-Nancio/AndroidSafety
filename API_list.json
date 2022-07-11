@@ -4,11 +4,12 @@
 },
 {
   "name": "Base64 Encode",
-  "packages": ["android.util.Base64"]
+  "packages": ["android.util.Base64.encode",
+    "android.util.Base64.encodeToString"]
 },
 {
   "name": "Base64 Decode",
-  "packages": ["android.util.Base64"]
+  "packages": ["android.util.Base64.decode"]
 },
 {
   "name": "Crypto",

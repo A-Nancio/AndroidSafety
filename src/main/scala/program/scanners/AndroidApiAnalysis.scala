@@ -39,7 +39,8 @@ object AndroidApiAnalysis {
     val methodCalls = code.collectInstructions{case inst: MethodInvocationInstruction => inst}
     methodCalls.foreach(call => {
       api_list.foreach(category => {
-        if (category.packages.contains(call.declaringClass.toJava))
+        // list of packages/methods calls contains -> package.methodName 
+        if (category.packages.contains(call.declaringClass.toJava + "." + call.name))
         results.get(category.name) match {
           case None => results += (category.name -> Set[String]())
           case Some(value) => value += callerClass
