@@ -4,20 +4,14 @@ import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.FieldAccess
 import org.opalj.issues.Operands
 import org.opalj.ai.AIResult
-import org.opalj.br.PCAndInstruction
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import scala.annotation.meta.field
 
  
 object WorldReadable extends ScanOperation {
-  override def execute(pc_instruction: PCAndInstruction, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[java.net.URL]}): Boolean = {
-    pc_instruction.instruction match {
-      case fieldAccess: FieldAccess => {
-        return fieldAccess.declaringClass.toJava == "android.content.Context" &&
+  override def execute(fieldAccess: FieldAccess, pc: Int): Boolean = {
+    return fieldAccess.declaringClass.toJava == "android.content.Context" &&
         fieldAccess.name == "MODE_WORLD_READABLE"
-      }
-      case _ => return false
-    }
   }
 
   override def json = SecurityWarning(
@@ -41,14 +35,9 @@ object WorldReadable extends ScanOperation {
 */
 
 object WorldWritablee extends ScanOperation {
-  override def execute(pc_instruction: PCAndInstruction, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[java.net.URL]}): Boolean = {
-    pc_instruction.instruction match {
-      case fieldAccess: FieldAccess => {
-        return fieldAccess.declaringClass.toJava == "android.content.Context" &&
+  override def execute(fieldAccess: FieldAccess, pc: Int): Boolean = {
+    return fieldAccess.declaringClass.toJava == "android.content.Context" &&
         fieldAccess.name == "MODE_WORLD_WRITEABLE"
-      }
-      case _ => return false
-    }
   }
 
   override def json = SecurityWarning(

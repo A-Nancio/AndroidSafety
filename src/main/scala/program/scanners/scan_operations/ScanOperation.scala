@@ -22,17 +22,13 @@ case class SecurityWarning(
 abstract class  ScanOperation {
   var results = Set[String]() 
   
-  def execute(pc_instruction: PCAndInstruction, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    throw new Exception(s"No ${name} implementation provided for method access")
-  }
-  /*
-  def execute(instruction: FieldAccess): Boolean = {
-    throw new Exception(s"No ${name} implementation provided for field access")
+  def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    throw new Exception(s"No ${name} implementation provided for method call instructions")
   }
 
-  def execute(instruction: LoadString): Boolean = {
-    throw new Exception(s"No ${name} implementation provided for string constant loading")
-  }*/
+  def execute(fieldAccess: FieldAccess, pc: Int): Boolean = {
+    throw new Exception(s"No ${name} implementation provided for field access instructions")
+  }
 
   def register(classFile: String): Unit = {
     results += classFile

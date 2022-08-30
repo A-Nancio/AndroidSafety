@@ -1,40 +1,38 @@
 package program.scanners.scan_operations
 
 import org.opalj.ai.AIResult
-import org.opalj.br.PCAndInstruction
 import java.net.URL
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import org.opalj.br.instructions.MethodInvocationInstruction
-import program.HelperFunctions
 import org.opalj.br.instructions.FieldAccess
+import program.HelperFunctions
 
 object AndroidPreventScreenshot extends ScanOperation {
   private var getWindowCall = false
-  override def execute(pc_instruction: PCAndInstruction, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    if (pc_instruction.instruction.isMethodInvocationInstruction) {
-      val methodInvocation = pc_instruction.instruction.asMethodInvocationInstruction
-      val operands = interpretation.operandsArray(pc_instruction.pc)
+  override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    val operands = interpretation.operandsArray(pc)
 
-      if (methodInvocation.declaringClass.toJava == "android.view.Window" && methodInvocation.name == "setFlags" || methodInvocation.name == "addFlags") {     
-        // get the Android window origin
-        val windowReference = operands(operands.size - 1)
-        val windowOrigin = interpretation.domain.origins(windowReference)
-        HelperFunctions.findInstruction(windowOrigin.head, interpretation.code) match {
-          case inst: MethodInvocationInstruction => {
-            if (inst.declaringClass.toJava == "android.app.Activity" && inst.name == "getWindow") {
-                
-              //check the flag inside the first argument
-              val flagReference = operands(0)
-              val flagOrigin = interpretation.domain.origins(flagReference)
-              HelperFunctions.findInstruction(flagOrigin.head, interpretation.code) match {
-                case flag: FieldAccess =>
-                  return inst.declaringClass.toJava == "android.view.WindowManager.LayoutParams" && inst.name == "FLAG_SECURE"
-                case _ => return false
-              }
+    if (methodCall.declaringClass.toJava == "android.view.Window" && methodCall.name == "setFlags" || methodCall.name == "addFlags") {     
+      // get the Android window origin
+      val windowReference = operands(operands.size - 1)
+      val windowOrigin = interpretation.domain.origins(windowReference)
+      
+      HelperFunctions.findInstruction(windowOrigin.head, interpretation.code) match {
+        case inst: MethodInvocationInstruction => 
+          if (inst.declaringClass.toJava == "android.app.Activity" && inst.name == "getWindow") {
+              
+            //check the flag inside the first argument
+            val flagReference = operands(0)
+            val flagOrigin = interpretation.domain.origins(flagReference)
+            HelperFunctions.findInstruction(flagOrigin.head, interpretation.code) match {
+              case flag: FieldAccess =>
+                return inst.declaringClass.toJava == "android.view.WindowManager.LayoutParams" && inst.name == "FLAG_SECURE"
+              
+              case _ => return false
             }
           }
-          case _ => return false
-        }
+        
+        case _ => return false
       }
     }
     return false

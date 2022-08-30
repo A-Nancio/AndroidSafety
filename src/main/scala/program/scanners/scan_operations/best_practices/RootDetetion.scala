@@ -1,23 +1,17 @@
 package program.scanners.scan_operations
 
 import org.opalj.ai.AIResult
-import org.opalj.br.PCAndInstruction
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import org.opalj.br.instructions.MethodInvocationInstruction
 
 object RootDetetion extends ScanOperation {
-  override def execute(pc_instruction: PCAndInstruction, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    pc_instruction.instruction match {
-      case methodInvocation: MethodInvocationInstruction => {
-        return methodInvocation.name == "isJailBroken" ||
-                methodInvocation.name == "isDeviceRooted" ||
-                methodInvocation.name == "isRooted" ||
-                (methodInvocation.declaringClass == "com.stericson.RootTools.RootTools.isAccessGiven" &&
-                  methodInvocation.name == "isAccessGiven")               
-      }
-      case _ => return false
-    }
+  override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    return methodCall.name == "isJailBroken" ||
+          methodCall.name == "isDeviceRooted" ||
+          methodCall.name == "isRooted" ||
+          (methodCall.declaringClass.toJava == "com.stericson.RootTools.RootTools.isAccessGiven" &&
+          methodCall.name == "isAccessGiven")   
   }
   
   override def json = SecurityWarning(

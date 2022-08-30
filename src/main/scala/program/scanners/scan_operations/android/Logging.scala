@@ -3,49 +3,49 @@ package program.scanners.scan_operations
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.Instruction
 import org.opalj.br.instructions.FieldAccess
-import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
-import org.opalj.ai.domain.l1.StringValues
-import simulacrum.op
+import org.opalj.ai.AIResult
 import java.net.URL
 import program.HelperFunctions
-import org.opalj.ai.domain.l1.DefaultStringValuesBinding
-import org.opalj.br.PCAndInstruction
+import org.opalj.br.instructions.LoadString
+import org.opalj.br.ObjectType
 
 object Logging extends ScanOperation{
-  override def execute(pc_instruction: PCAndInstruction, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val instruction = pc_instruction.instruction
+  override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
    
-    if (instruction.isMethodInvocationInstruction) {
-      val methodCall = instruction.asMethodInvocationInstruction
-      val operands = interpretation.operandsArray(pc_instruction.pc)
-      
-      //check for Log
-      if (methodCall.declaringClass.toJava == "android.util.Log" && 
-      Array("d", "e", "i", "v", "w").contains(methodCall.name)) {
-        for (index <- 0 until operands.size - 1) {
-          val arg = operands(index)
-          if (arg.isReferenceValue) {
-            return true
-          }
+    val operands = interpretation.operandsArray(pc)
+    
+    //check for Log
+    if (methodCall.declaringClass.toJava == "android.util.Log" && 
+    Array("d", "e", "i", "v", "w").contains(methodCall.name)) {
+      for (index <- 0 until operands.size - 1) {
+        val arg = operands(index)
+        if (arg.isReferenceValue) { //NOTE: might be wrong
+          return true
         }
-        return false
       }
-      
-      //check for System.out.println && System.out.print
-      if (methodCall.declaringClass.toJava == "java.io.PrintStream" && Array("print", "println").contains(methodCall.name)) {
-        if (operands.size == 2) { //empty prints log no information
-          
-          val printStreamReference = operands(operands.size - 1)
-          val origin = interpretation.domain.origins(printStreamReference)
-          HelperFunctions.findInstruction(origin.head, interpretation.code) match {
-            case inst: FieldAccess => 
-              return inst.declaringClass.toJava == "java.lang.System" && (inst.name == "out"|| inst.name == "err")
-            case _ => return false
-          }
-        }
-      }     
+      return false
     }
+    
+    //check for System.out.println && System.out.print
+    val aux = ObjectType("java/io/PrintStream")
+    if (methodCall.declaringClass == aux && Array("print", "println").contains(methodCall.name)) {
+      if (operands.size == 2) { //empty prints log no information
+        //get origins of both arguments
+        val stringOrigin = interpretation.domain.origins(operands(0))
+        val printStreamOrigin = interpretation.domain.origins(operands(operands.size - 1))
+        
+        //get the corresponding instructions
+        val stringLoad = HelperFunctions.findInstruction(stringOrigin.head, interpretation.code)
+        val printStreamAccess = HelperFunctions.findInstruction(printStreamOrigin.head, interpretation.code)
+        
+        (stringLoad, printStreamAccess) match {
+          case (stringLoad: LoadString, printStreamAccess: FieldAccess) => 
+            return printStreamAccess.declaringClass.toJava == "java.lang.System" && (printStreamAccess.name == "out"|| printStreamAccess.name == "err")
+          case _ => return false
+        }
+      }
+    }     
     return false
   } 
   
