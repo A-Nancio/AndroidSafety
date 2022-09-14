@@ -6,18 +6,20 @@ import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import org.opalj.ai.AIResult
 import java.net.URL
 import program.HelperFunctions
+import org.opalj.br.ObjectType
 
 object HiddenUi extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val operands = interpretation.operandsArray(pc)
-    
-    if (methodCall.declaringClass.toJava == "android.view.View") {
+    val viewType = ObjectType("android/view/View")
+
+    if (methodCall.declaringClass == viewType) {
       //get the origin of the argument inside setVisitbiity([MODE])
       val viewSettingOrigin = interpretation.domain.origins(operands(0))
     
-      HelperFunctions.findInstruction(viewSettingOrigin.head, interpretation.code) match {
+      HelperFunctions.findInstruction(viewSettingOrigin, interpretation.code) match {
         case fieldAccess: FieldAccess =>
-          return fieldAccess.declaringClass.toJava == "android.view.View" && 
+          return fieldAccess.declaringClass == viewType && 
             (fieldAccess.name == "INVISIBLE" || fieldAccess.name == "GONE")
         case _ => return false
       }
@@ -37,3 +39,19 @@ object HiddenUi extends ScanOperation {
 
   override def name = "HiddenUI"
 }
+/*
+patterns:
+      - pattern-either:
+          - pattern: |
+              $X.setVisibility(View.GONE);
+          - pattern: |
+              $V = View.GONE;
+              ...
+              $X.setVisibility($V);
+          - pattern: |
+              $X.setVisibility(View.INVISIBLE);
+          - pattern: |
+              $V = View.INVISIBLE;
+              ...
+              $X.setVisibility($V);
+*/

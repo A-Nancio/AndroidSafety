@@ -9,6 +9,7 @@ import java.net.URL
 import program.HelperFunctions
 import org.opalj.br.instructions.LoadString
 import org.opalj.br.ObjectType
+import cats.instances.string
 
 object Logging extends ScanOperation{
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -34,15 +35,16 @@ object Logging extends ScanOperation{
         //get origins of both arguments
         val stringOrigin = interpretation.domain.origins(operands(0))
         val printStreamOrigin = interpretation.domain.origins(operands(operands.size - 1))
-        
         //get the corresponding instructions
-        val stringLoad = HelperFunctions.findInstruction(stringOrigin.head, interpretation.code)
-        val printStreamAccess = HelperFunctions.findInstruction(printStreamOrigin.head, interpretation.code)
         
-        (stringLoad, printStreamAccess) match {
-          case (stringLoad: LoadString, printStreamAccess: FieldAccess) => 
-            return printStreamAccess.declaringClass.toJava == "java.lang.System" && (printStreamAccess.name == "out"|| printStreamAccess.name == "err")
-          case _ => return false
+        if (!stringOrigin.isEmpty) {
+          val stringLoad = interpretation.code.instructions(stringOrigin.head)
+          val printStreamAccess = interpretation.code.instructions(printStreamOrigin.head)
+          (stringLoad, printStreamAccess) match {
+            case (stringLoad: LoadString, printStreamAccess: FieldAccess) => 
+              return printStreamAccess.declaringClass.toJava == "java.lang.System" && (printStreamAccess.name == "out"|| printStreamAccess.name == "err")
+            case _ => return false
+          }
         }
       }
     }     
