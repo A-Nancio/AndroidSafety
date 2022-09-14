@@ -14,7 +14,9 @@ import org.opalj.br.PCAndInstruction
 case class SecurityWarning(
   message: String,
   severity: String,
-  standards: Array[String],
+  cwe: String,
+  owasp_mobile: String,
+  masvs: String,
   files: Set[String],
   reference: String
 )
