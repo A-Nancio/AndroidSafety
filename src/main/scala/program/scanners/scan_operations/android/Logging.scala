@@ -54,9 +54,9 @@ object Logging extends ScanOperation{
   override def json = SecurityWarning(
       "The App logs information. Sensitive information should never be logged.",
       "INFO",
-      Array("CWE: cwe-532",
-            "OWASP-MOBILE : m1",
-            "MASVS: storage-3"),
+      "cwe-532",
+      "m1",
+      "storage-3",
       this.results,
       "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#logs"
     )

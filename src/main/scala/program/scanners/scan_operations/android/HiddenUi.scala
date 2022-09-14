@@ -30,9 +30,9 @@ object HiddenUi extends ScanOperation {
   override def json = SecurityWarning(
     "Hidden elements in view can be used to hide data from user. But this data can be leaked.",
     "ERROR",
-    Array("CWE: cwe-919",
-          "OWASP-MOBILE: m1",
-          "MASVS: storage-7"),
+    "cwe-919",
+    "m1",
+    "storage-7",
     this.results,
     "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#checking-for-sensitive-data-disclosure-through-the-user-interface-mstg-storage-7"
   ) 

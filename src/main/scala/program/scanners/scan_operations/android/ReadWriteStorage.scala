@@ -17,10 +17,9 @@ object WorldReadable extends ScanOperation {
   override def json = SecurityWarning(
     "App can read/write to External Storage. Any App can read data written to External Storage.",
     "WARNING",
-    Array(
-    "CWE: cwe-276",
-    "OWASP-MOBILE: m2",
-    "MASVS: storage-2"),
+    "cwe-276",
+    "m2",
+    "storage-2",
     this.results,
     "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2"
   ) 
@@ -43,10 +42,9 @@ object WorldWritablee extends ScanOperation {
   override def json = SecurityWarning(
     "App can read/write to External Storage. Any App can read data written to External Storage.",
     "WARNING",
-    Array(
-    "CWE: cwe-276: Incorrect Default Permissions",
-    "OWASP-MOBILE: m2",
-    "MASVS: storage-2"),
+    "cwe-276",
+    "m2",
+    "storage-2",
     this.results,
     "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2"
   ) 
