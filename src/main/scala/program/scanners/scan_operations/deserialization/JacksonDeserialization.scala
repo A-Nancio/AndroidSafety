@@ -20,9 +20,9 @@ object jacksonDeserialization extends ScanOperation {
       the data stream to make sure it is not tampered with, or consider only 
       transmitting object fields and populating a new object.""",
       "ERROR",
-      Array("CWE: cwe-502",
-            "OWASP-MOBILE: m1",
-            "MASVS: platform-8"),
+      "cwe-502",
+      "m1",
+      "platform-8",
       this.results,
       "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8"
   )
