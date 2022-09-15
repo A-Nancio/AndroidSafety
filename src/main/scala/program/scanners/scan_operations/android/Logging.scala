@@ -6,7 +6,6 @@ import org.opalj.br.instructions.FieldAccess
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import org.opalj.ai.AIResult
 import java.net.URL
-import program.HelperFunctions
 import org.opalj.br.instructions.LoadString
 import org.opalj.br.ObjectType
 import cats.instances.string

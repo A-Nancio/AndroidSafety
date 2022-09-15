@@ -5,7 +5,6 @@ import org.opalj.br.instructions.FieldAccess
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import org.opalj.ai.AIResult
 import java.net.URL
-import program.HelperFunctions
 import org.opalj.br.ObjectType
 
 object HiddenUi extends ScanOperation {
@@ -17,7 +16,7 @@ object HiddenUi extends ScanOperation {
       //get the origin of the argument inside setVisitbiity([MODE])
       val viewSettingOrigin = interpretation.domain.origins(operands(0))
     
-      HelperFunctions.findInstruction(viewSettingOrigin, interpretation.code) match {
+      interpretation.code.instructions(viewSettingOrigin.head) match {
         case fieldAccess: FieldAccess =>
           return fieldAccess.declaringClass == viewType && 
             (fieldAccess.name == "INVISIBLE" || fieldAccess.name == "GONE")
