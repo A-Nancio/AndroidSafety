@@ -6,7 +6,6 @@ import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
-import program.HelperFunctions
 import org.opalj.br.instructions.LoadString
 
 object InsecureSslV3 extends ScanOperation {
@@ -15,7 +14,7 @@ object InsecureSslV3 extends ScanOperation {
       val operands = interpretation.operandsArray(pc)
       val argumentOrigin = interpretation.domain.origins(operands(0))
 
-      HelperFunctions.findInstruction(argumentOrigin.head, interpretation.code) match {
+      interpretation.code.instructions(argumentOrigin.head) match {
         case stringLoad: LoadString => return stringLoad.value == "SSLv3"
         case _ =>
       }
@@ -26,9 +25,9 @@ object InsecureSslV3 extends ScanOperation {
   override def json = SecurityWarning(
     "The App uses an insecure Random Number Generator.",
     "WARNING",
-    Array("cwe: cwe-330",
-      "owasp-mobile: m5",
-      "masvs: crypto-6"),
+    "cwe-330",
+    "m5",
+    "crypto-6",
     this.results,
     "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#weak-random-number-generators"
   )

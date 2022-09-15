@@ -6,32 +6,34 @@ import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
-import org.opalj.br.instructions.LoadString
 import org.opalj.br.ObjectType
+import org.opalj.br.instructions.LoadString
 
-object Sha1Hash extends ScanOperation {
+object WeakChipers extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val digestUtilsType = ObjectType("org/apache/commons/codec/digest/DigestUtils")
-    if (methodCall.declaringClass == digestUtilsType &&
-      Array("sha1Hex", "sha", "sha1").contains(methodCall.name))
+    val nullCipherType = ObjectType("javax/crypto/NullCipher")
+    if (methodCall.declaringClass == nullCipherType && methodCall.name == "init")
       return true
-    
-    val messageDigestType = ObjectType("java/security/MessageDigest")
-    if (methodCall.declaringClass == messageDigestType &&
-    methodCall.name == "getInstance") {
+
+    if (methodCall.name == "getInstance") {
       val operands = interpretation.operandsArray(pc)
       val argumentOrigin = interpretation.domain.origins(operands(0))
 
       interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => return stringLoad.value == "SHA-1"
+        case stringLoad: LoadString => 
+          return Array("DES", "DESEDE", "RC2", "RC4", "BLOWFISH") contains 
+          stringLoad.value.toUpperCase
+        case _ => return false
       }
     }
     return false
   }
   
+  
   override def json = SecurityWarning(
-    "SHA1 Hash algorithm used. The SHA1 hash is known to have hash collisions.",
-    "WARNING",
+    """Weak encryption algorithm identified. This algorithm is vulnerable to
+      cryptographic attacks.""",
+    "ERROR",
     "cwe-327",
     "m5",
     "crypto-4",
@@ -39,18 +41,13 @@ object Sha1Hash extends ScanOperation {
     "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#identifying-insecure-andor-deprecated-cryptographic-algorithms-mstg-crypto-4"
   )
 
-  override def name = "SHA-1 Hash"
+  override def name = "Weak Chipers"
 }
 
-/*
-patterns:
+/*patterns:
       - pattern-either:
           - pattern: |
-              $C.getInstance("=~/sha-1|sha1/i", ...);
+              $C.getInstance("=~/des|desede|rc2|rc4|blowfish/i", ...);
           - pattern: |
-              DigestUtils.sha1Hex(...);
-          - pattern: |
-              DigestUtils.sha1(...);
-          - pattern: |
-              DigestUtils.sha(...);
+              $C = new NullCipher();
 */
