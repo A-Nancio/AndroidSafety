@@ -30,7 +30,6 @@ object WeakHashes extends ScanOperation {
     
     // NOTE: Hashing.md5() not attended to
     
-    
     return false
   }
   
