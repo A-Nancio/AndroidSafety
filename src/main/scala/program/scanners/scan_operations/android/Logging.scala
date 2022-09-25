@@ -9,6 +9,8 @@ import java.net.URL
 import org.opalj.br.instructions.LoadString
 import org.opalj.br.ObjectType
 import cats.instances.string
+import org.opalj.ai.domain.l0.TypeLevelIntegerValues
+import org.opalj.value.IsIntegerValue
 
 object Logging extends ScanOperation{
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -27,6 +29,7 @@ object Logging extends ScanOperation{
     //check for System.out.println && System.out.print
     if (methodCall.declaringClass == ObjectType("java/io/PrintStream") && Array("print", "println").contains(methodCall.name)) {
       if (operands.size == 2) { //empty prints log no information
+        
         //get origins of both arguments
         return !CodeTracker.processLoadConstantOrigin(0, pc, interpretation) && 
                 (CodeTracker.processFieldAccessOrigin(1, pc, "java/lang/System", "out", interpretation) ||

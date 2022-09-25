@@ -1,4 +1,4 @@
-package program.scanners.scan_operations.webview
+package program.scanners.scan_operations.xxe
 
 import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
@@ -8,13 +8,15 @@ import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
 import org.opalj.br.instructions.LoadString
+import program.scanners.scan_operations.CodeTracker
 import org.opalj.value.IsIntegerValue
 
-object WebviewDebugging extends ScanOperation {
+object XMLFactorySupportExternalEntities extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val webViewType = ObjectType("android/webkit/WebView")
-    if (methodCall.declaringClass == webViewType && methodCall.name == "setWebContentsDebuggingEnabled") {
+    val XMLInputFactoryType = ObjectType("javax/xml/stream/XMLInputFactory")
+    if (methodCall.declaringClass == XMLInputFactoryType && methodCall.name == "setProperty") {
       val reference = interpretation.operandsArray(pc)(0)
+
       if (reference.isPrimitiveValue) {
         reference.asPrimitiveValue match {
           case value: IsIntegerValue => return value.asConstantInteger == 1
@@ -26,15 +28,21 @@ object WebviewDebugging extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """Remote WebView debugging is enabled. This allows an attacker with
-      debugging access to interact with the webview and steal or corrupt data.""",
+    """XML external entities are enabled for this XMLInputFactory. This is
+      vulnerable to XML external entity attacks. Disable external entities by
+      setting "javax.xml.stream.isSupportingExternalEntities" to false.""",
     "ERROR",
-    "cwe-489",
-    "m1",
-    "resilience-2",
+    "cwe-611",
+    "m8",
+    "platform-2",
     this.results,
-    "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-anti-debugging-detection-mstg-resilience-2"
+    "https://github.com/MobSF/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#injection-flaws-mstg-arch-2-and-mstg-platform-2"
   )
 
-  override def name = "Webview Debugging"
+  override def name = "XML Input Factory XXE enabled"
 }
+/*
+pattern: >-
+      $XMLFACTORY.setProperty("javax.xml.stream.isSupportingExternalEntities",
+      true);
+*/
