@@ -15,6 +15,7 @@ object RsaNoOeap extends ScanOperation {
     val cipherObjectType = ObjectType("javax/crypto/Cipher")
 
     if (methodCall.declaringClass == cipherObjectType && methodCall.name == "getInstance") {
+      // Can not use auxiliary function for this operations
       val operands = interpretation.operandsArray(pc)
       val argumentOrigin = interpretation.domain.origins(operands(0))
 

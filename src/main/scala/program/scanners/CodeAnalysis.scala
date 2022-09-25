@@ -19,17 +19,18 @@ import org.opalj.ai.AIResult
 import org.opalj.ai.domain.PerformAI
 import org.opalj.tac.fpcf.analyses.purity.LoggingRater
 import org.opalj.br.instructions.FieldAccess
+import org.opalj.br.ObjectType
+import org.opalj.br.instructions.Instruction
+import org.opalj.br.instructions.LoadString
 
 class CodeAnalysis(project: Project[URL]) {
+
+
   private val methodScanOperations: Array[ScanOperation] = Array[ScanOperation](
     Logging)
-    /*Base64,*/
-    /*ClipboardUsage,
-    RawQuery,
-    ReadWriteStorage,
-    TempFile,
-    WeakNumberGenerator
-  */
+  
+
+  private val bestPracticeOperations: Array[ScanOperation] = Array[ScanOperation]()
   private val scanOperations = methodScanOperations
 
   def scan(method: Method, classFileName: String): Unit = { 
@@ -38,20 +39,20 @@ class CodeAnalysis(project: Project[URL]) {
       case Some(code) => 
         //Obtain CFG and defUses from that 
         val domain = new DefaultDomainWithCFGAndDefUse(project, method)
-        lazy val result: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]} = PerformAI(domain) 
+        lazy val interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]} = PerformAI(domain)
         
         code.foreach(pc_instruction => { pc_instruction.instruction match {          
           case methodCall: MethodInvocationInstruction => {
             println("[INSTRUCTION]: " + pc_instruction.instruction)
             methodScanOperations.foreach(operation => {
-              val res = operation.execute(methodCall, pc_instruction.pc, result)
-              println(res)
+              val res = operation.execute(methodCall, pc_instruction.pc, interpretation)
               if (res)
-                operation.register(classFileName)
+                println("\tTRUTH")
+                //operation.register(classFileName)
             })
           }
           case fieldAccess: FieldAccess => {}
-          case _ => //no matches found
+          case _ => println("[INSTRUCTION]: " + pc_instruction.instruction + " " + pc_instruction)
         }})
       case None => //Nothing to scan
       }
@@ -61,4 +62,6 @@ class CodeAnalysis(project: Project[URL]) {
     val output = scanOperations.map(operation => operation.json)
     return Encoder[Array[SecurityWarning]].apply(output)
   }
+
+  
 }

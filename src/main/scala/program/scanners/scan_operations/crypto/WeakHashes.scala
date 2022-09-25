@@ -8,20 +8,14 @@ import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
 import org.opalj.br.instructions.LoadString
+import program.scanners.scan_operations.CodeTracker
 
 object WeakHashes extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val messageDigestType = ObjectType("java/security/MessageDigest")
     if (methodCall.declaringClass == messageDigestType &&
     methodCall.name == "getInstance") {
-      val operands = interpretation.operandsArray(pc)
-      val argumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => 
-          return stringLoad.value == "MD5"
-        case _ => return false
-      }
+      CodeTracker.processStringLoadOrigin(0, pc, Array("MD5"), interpretation)
     }
 
     val digestUtilsType = ObjectType("org/apache/commons/codec/digest/DigestUtils")

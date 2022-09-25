@@ -16,35 +16,21 @@ object Logging extends ScanOperation{
     val operands = interpretation.operandsArray(pc)
     
     //check for Log
-    if (methodCall.declaringClass.toJava == "android.util.Log" && 
+    if (methodCall.declaringClass == ObjectType("android/util/Log") && 
     Array("d", "e", "i", "v", "w").contains(methodCall.name)) {
       for (index <- 0 until operands.size - 1) {
-        val arg = operands(index)
-        if (arg.isReferenceValue) { //NOTE: might be wrong
-          return true
-        }
+        return !CodeTracker.processLoadConstantOrigin(index, pc, interpretation)
       }
       return false
     }
     
     //check for System.out.println && System.out.print
-    val aux = ObjectType("java/io/PrintStream")
-    if (methodCall.declaringClass == aux && Array("print", "println").contains(methodCall.name)) {
+    if (methodCall.declaringClass == ObjectType("java/io/PrintStream") && Array("print", "println").contains(methodCall.name)) {
       if (operands.size == 2) { //empty prints log no information
         //get origins of both arguments
-        val stringOrigin = interpretation.domain.origins(operands(0))
-        val printStreamOrigin = interpretation.domain.origins(operands(operands.size - 1))
-        //get the corresponding instructions
-        
-        if (!stringOrigin.isEmpty) {
-          val stringLoad = interpretation.code.instructions(stringOrigin.head)
-          val printStreamAccess = interpretation.code.instructions(printStreamOrigin.head)
-          (stringLoad, printStreamAccess) match {
-            case (stringLoad: LoadString, printStreamAccess: FieldAccess) => 
-              return printStreamAccess.declaringClass.toJava == "java.lang.System" && (printStreamAccess.name == "out"|| printStreamAccess.name == "err")
-            case _ => return false
-          }
-        }
+        return !CodeTracker.processLoadConstantOrigin(0, pc, interpretation) && 
+                (CodeTracker.processFieldAccessOrigin(1, pc, "java/lang/System", "out", interpretation) ||
+                CodeTracker.processFieldAccessOrigin(1, pc, "java/lang/System", "err", interpretation))
       }
     }     
     return false

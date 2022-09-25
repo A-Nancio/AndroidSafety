@@ -8,6 +8,7 @@ import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.instructions.LoadString
 import org.opalj.br.ObjectType
+import program.scanners.scan_operations.CodeTracker
 
 object Sha1Hash extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -19,12 +20,7 @@ object Sha1Hash extends ScanOperation {
     val messageDigestType = ObjectType("java/security/MessageDigest")
     if (methodCall.declaringClass == messageDigestType &&
     methodCall.name == "getInstance") {
-      val operands = interpretation.operandsArray(pc)
-      val argumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => return stringLoad.value == "SHA-1"
-      }
+      CodeTracker.processStringLoadOrigin(0, pc, Array("SHA-1"), interpretation)
     }
     return false
   }

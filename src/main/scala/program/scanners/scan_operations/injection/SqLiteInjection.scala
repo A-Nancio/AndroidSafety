@@ -8,18 +8,13 @@ import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
 import org.opalj.br.instructions.LoadString
+import program.scanners.scan_operations.CodeTracker
 
 object SqLiteInjection extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val SQLiteDatabaseType = ObjectType("android/database/sqlite/SQLiteDatabase")
     if (methodCall.declaringClass == SQLiteDatabaseType && (methodCall.name == "execSQL" || methodCall.name == "rawQuery")) {
-      val operands = interpretation.operandsArray(pc)
-      val firstArgumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(firstArgumentOrigin.head) match {
-        case stringLoad: LoadString => return false //loading a query from a raw string, it can not be manipulated
-        case _ => return true //anything else has a chance to be manipulated by the user
-      }
+      return !CodeTracker.processLoadConstantOrigin(0, pc, interpretation)
     }
     return false
   }

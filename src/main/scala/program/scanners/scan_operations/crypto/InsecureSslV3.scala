@@ -7,17 +7,12 @@ import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.instructions.LoadString
+import program.scanners.scan_operations.CodeTracker
 
 object InsecureSslV3 extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     if (methodCall.name == "getInstance") {
-      val operands = interpretation.operandsArray(pc)
-      val argumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => return stringLoad.value == "SSLv3"
-        case _ =>
-      }
+      CodeTracker.processStringLoadOrigin(0, pc, Array("SSLv3"), interpretation)
     }
     return false
   }

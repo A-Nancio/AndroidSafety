@@ -10,6 +10,12 @@ import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import org.opalj.br.Code
 import org.opalj.br.PCAndInstruction
+import org.opalj.br.analyses.Project
+import org.opalj.br.Method
+import org.opalj.ai.domain.PerformAI
+import org.opalj.value.ValueInformation
+import io.circe.CursorOp
+import org.opalj.br.ObjectType
 
 case class SecurityWarning(
   message: String,
@@ -21,7 +27,8 @@ case class SecurityWarning(
   reference: String
 )
 
-abstract class  ScanOperation {
+abstract class ScanOperation {
+
   var results = Set[String]() 
   
   def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult {val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -40,4 +47,73 @@ abstract class  ScanOperation {
   def json: SecurityWarning
 
   def name: String
+}
+
+object CodeTracker {
+  def processFieldAccessOrigin(argumentIndex: Int, instructionPC: Int, packageName: String, methodName: String,
+                              methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
+    val origin = methodInfo.domain.origins(reference)
+
+    if (!origin.isEmpty) {
+      val instructionOrigin = methodInfo.code.instructions(origin.head)
+      instructionOrigin match {
+        case fielAccess: FieldAccess => {
+          val objType = ObjectType(packageName)
+          return fielAccess.declaringClass == objType && fielAccess.name == methodName
+        }
+        case _ => return false
+      }
+    }
+    return false   
+  }
+
+  def processStringLoadOrigin(argumentIndex: Int, instructionPC: Int, keyWords: Array[String],
+                              methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
+    val origin = methodInfo.domain.origins(reference)
+    if (!origin.isEmpty) {
+      val instructionOrigin = methodInfo.code.instructions(origin.head)
+      instructionOrigin match {
+        case stringLoad: LoadString => {
+          return keyWords contains stringLoad.value
+        }
+        case _ => return false
+      }
+    }
+    return false
+  }
+
+  def processMethodCallOrigin(argumentIndex: Int, instructionPC: Int, packageName: String, fieldName: String,                            
+                              methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
+    val origin = methodInfo.domain.origins(reference)
+
+    if (!origin.isEmpty) {
+      val instructionOrigin = methodInfo.code.instructions(origin.head)
+      instructionOrigin match {
+        case method: MethodInvocationInstruction => {
+          val objType = ObjectType(packageName)
+          return method.declaringClass == objType && method.name == fieldName
+        }
+        case _ => return false
+      }
+    }
+    return false                            
+  }
+
+  def processLoadConstantOrigin(argumentIndex: Int, instructionPC: Int,
+                              methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
+    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
+    val origin = methodInfo.domain.origins(reference)
+
+    if (!origin.isEmpty) {
+      val instructionOrigin = methodInfo.code.instructions(origin.head)
+      instructionOrigin match {
+        case string: LoadString => return true
+        case _ => return false
+      }
+    }
+    return true
+  }
 }

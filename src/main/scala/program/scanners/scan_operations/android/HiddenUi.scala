@@ -11,18 +11,11 @@ object HiddenUi extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val operands = interpretation.operandsArray(pc)
     val viewType = ObjectType("android/view/View")
+    //AbstractInterpretation.verifyStringLoadOrigin(interpretation, pc, 0)
+    if (methodCall.declaringClass == viewType)
+      return CodeTracker.processFieldAccessOrigin(0, pc, "android/view/View", "INVISIBLE", interpretation) ||
+             CodeTracker.processFieldAccessOrigin(0, pc, "android/view/View", "GONE", interpretation)
 
-    if (methodCall.declaringClass == viewType) {
-      //get the origin of the argument inside setVisitbiity([MODE])
-      val viewSettingOrigin = interpretation.domain.origins(operands(0))
-    
-      interpretation.code.instructions(viewSettingOrigin.head) match {
-        case fieldAccess: FieldAccess =>
-          return fieldAccess.declaringClass == viewType && 
-            (fieldAccess.name == "INVISIBLE" || fieldAccess.name == "GONE")
-        case _ => return false
-      }
-    }
     return false
   }
 

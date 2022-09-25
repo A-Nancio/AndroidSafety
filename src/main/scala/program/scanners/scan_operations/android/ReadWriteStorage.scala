@@ -6,11 +6,12 @@ import org.opalj.issues.Operands
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import scala.annotation.meta.field
+import org.opalj.br.ObjectType
 
  
 object WorldReadable extends ScanOperation {
   override def execute(fieldAccess: FieldAccess, pc: Int): Boolean = {
-    return fieldAccess.declaringClass.toJava == "android.content.Context" &&
+    return fieldAccess.declaringClass == ObjectType("android/content/Context") &&
         fieldAccess.name == "MODE_WORLD_READABLE"
   }
 

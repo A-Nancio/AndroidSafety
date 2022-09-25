@@ -15,11 +15,10 @@ object Program {
   
   def analyse(project: Project[URL]): Unit = {
     val code_analysis = new CodeAnalysis(project)
-
+    
     val iterator = project.allProjectClassFiles.iterator
     while(iterator.hasNext) {
       val classFile = iterator.next
-
       //check fields
       classFile.fields.foreach(field => AndroidApiAnalysis.scan(field.fieldType.toJava, classFile.thisType.toJava))
 
@@ -29,11 +28,6 @@ object Program {
       })
     }
   }
-/*
-println(AndroidApiAnalysis.export.toString())
-AndroidApiAnalysis.scan(code, classFile.thisType.toJava)
-println(CodeAnalysis.export.toString())
-*/
 
   def main(args: Array[String]): Unit = {
     println("―" * 50)
@@ -44,7 +38,6 @@ println(CodeAnalysis.export.toString())
       new java.io.File(jarPath), // path to the JAR files/directories containing the project
       org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
       ) 
-
     analyse(project)
   }
 }

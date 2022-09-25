@@ -8,6 +8,7 @@ import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 import program.scanners.scan_operations.SecurityWarning
+import program.scanners.scan_operations.CodeTracker
 
 object CbcPaddingOracle extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -16,19 +17,13 @@ object CbcPaddingOracle extends ScanOperation {
 
     if (methodCall.declaringClass == cipherObjectType &&
     methodCall.name == "getInstance") {
-      val argumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => return Array(
+      return CodeTracker.processStringLoadOrigin(0, pc, Array(
                 "AES/CBC/PKCS5Padding",
                 "Blowfish/CBC/PKCS5Padding",
                 "DES/CBC/PKCS5Padding",
                 "AES/CBC/PKCS7Padding",
                 "Blowfish/CBC/PKCS7Padding",
-                "DES/CBC/PKCS7Padding") contains
-                stringLoad.value
-        case _ =>
-      }
+                "DES/CBC/PKCS7Padding"), interpretation)
     }
     return false
   }
