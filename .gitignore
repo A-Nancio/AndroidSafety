@@ -1,6 +1,9 @@
 target/
+
 project/project/target/
 
+*.json
+*.xml
 *.class
 *.log
 **.bloop
