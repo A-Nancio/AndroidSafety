@@ -7,7 +7,6 @@ import io.circe.parser._
 
 import scala.collection.mutable.Set
 import program.scanners.scan_operations._
-
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.PCAndInstruction
 import org.opalj.br.Code
@@ -27,11 +26,18 @@ class CodeAnalysis(project: Project[URL]) {
 
 
   private val methodScanOperations: Array[ScanOperation] = Array[ScanOperation](
-    Logging)
+    Logging, HiddenUi, Aes_CbsMode, Aes_CbsModeDefault, Aes_CbsModeDefault,
+    CbcPaddingOracle, InsecureRandom, InsecureSslV3, RsaNoOeap, Sha1Hash, WeakChipers,
+    JacksonDeserialization, ObjectDeserialization, CommandInjection, SqLiteInjection,
+    DefaultHttpClientTls, WebviewDebugging, WebviewFileAccess, WebviewJavascriptInterface,
+    XMLDecoder, XMLFactorySupportExternalEntities)
   
+  private val bestPracticesOperations: Array[BestPracticeScan] = Array[BestPracticeScan](
+    AndroidCertificateTransparency, AndroidDetectTapjacking, AndroidPreventScreenshot, AndroidSafetyNet, RootDetection)
 
-  private val bestPracticeOperations: Array[ScanOperation] = Array[ScanOperation]()
-  private val scanOperations = methodScanOperations
+  private val operationsCollection: Array[ScanOperation] = methodScanOperations ++ bestPracticesOperations
+  
+  private val fieldAccessScanOperations: Array[ScanOperation] = Array[ScanOperation](WorldReadable, WorldWritable)
 
   def scan(method: Method, classFileName: String): Unit = { 
     
@@ -43,24 +49,37 @@ class CodeAnalysis(project: Project[URL]) {
         
         code.foreach(pc_instruction => { pc_instruction.instruction match {          
           case methodCall: MethodInvocationInstruction => {
-            println("[INSTRUCTION]: " + pc_instruction.instruction)
-            methodScanOperations.foreach(operation => {
-              val res = operation.execute(methodCall, pc_instruction.pc, interpretation)
-              if (res)
-                println("\tTRUTH")
-                //operation.register(classFileName)
+            operationsCollection.foreach(operation => {
+              if (operation.execute(methodCall, pc_instruction.pc, interpretation))
+                operation.register(classFileName)
             })
           }
-          case fieldAccess: FieldAccess => {}
-          case _ => println("[INSTRUCTION]: " + pc_instruction.instruction + " " + pc_instruction)
+          case fieldAccess: FieldAccess => {
+            fieldAccessScanOperations.foreach(operation => {
+              if (operation.execute(fieldAccess, pc_instruction.pc))
+                operation.register(classFileName)
+
+            })
+          }
+          case _ => //do nothing
         }})
       case None => //Nothing to scan
       }
   }
 
   def export(): Json = {
-    val output = scanOperations.map(operation => operation.json)
-    return Encoder[Array[SecurityWarning]].apply(output)
+    var output: Set[SecurityWarning] = Set[SecurityWarning]()
+    
+    methodScanOperations foreach 
+      (operation => if (!operation.json.files.isEmpty) output += operation.json) 
+    
+    bestPracticesOperations foreach(operation => {
+      if (operation.bestPracticeNotFound) output += operation.json
+    })
+
+    fieldAccessScanOperations foreach
+      (operation => if (!operation.json.files.isEmpty) output += operation.json)
+    return Encoder[Set[SecurityWarning]].apply(output)
   }
 
   
