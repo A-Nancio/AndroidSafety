@@ -1,13 +1,11 @@
-package program.scanners.scan_operations.deserialization
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.ai.AIResult
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
 
-object jacksonDeserialization extends ScanOperation {
+object JacksonDeserialization extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val operands = interpretation.operandsArray(pc)
     return methodCall.declaringClass == "com.fasterxml.jackson.databind.ObjectMapper" &&

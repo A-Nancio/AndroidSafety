@@ -34,7 +34,7 @@ object WorldReadable extends ScanOperation {
               Context.MODE_WORLD_READABLE
 */
 
-object WorldWritablee extends ScanOperation {
+object WorldWritable extends ScanOperation {
   override def execute(fieldAccess: FieldAccess, pc: Int): Boolean = {
     return fieldAccess.declaringClass.toJava == "android.content.Context" &&
         fieldAccess.name == "MODE_WORLD_WRITEABLE"

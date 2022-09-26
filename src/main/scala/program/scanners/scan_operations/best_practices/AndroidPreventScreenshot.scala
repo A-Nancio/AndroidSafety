@@ -7,7 +7,7 @@ import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.instructions.FieldAccess
 import org.opalj.br.ObjectType
 
-object AndroidPreventScreenshot extends ScanOperation {
+object AndroidPreventScreenshot extends BestPracticeScan {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val operands = interpretation.operandsArray(pc)
     val windowType = ObjectType("android/view/Window")

@@ -1,15 +1,12 @@
-package program.scanners.scan_operations.best_practices
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
-import org.opalj.br.instructions.LoadString
 
-object AndroidCertificateTransparency extends ScanOperation{
+object AndroidCertificateTransparency extends BestPracticeScan {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     val nameVerifierType = ObjectType("com/babylon/certificatetransparency/CTHostnameVerifierBuilder")
     val interceptorType = ObjectType("com/babylon/certificatetransparency/CTInterceptorBuilder")

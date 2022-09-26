@@ -19,11 +19,8 @@ object Logging extends ScanOperation{
     
     //check for Log
     if (methodCall.declaringClass == ObjectType("android/util/Log") && 
-    Array("d", "e", "i", "v", "w").contains(methodCall.name)) {
-      for (index <- 0 until operands.size - 1) {
-        return !CodeTracker.processLoadConstantOrigin(index, pc, interpretation)
-      }
-      return false
+      Array("d", "e", "i", "v", "w").contains(methodCall.name)) {
+        return true
     }
     
     //check for System.out.println && System.out.print

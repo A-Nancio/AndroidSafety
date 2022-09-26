@@ -1,15 +1,12 @@
-package program.scanners.scan_operations.best_practices
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
-import program.scanners.scan_operations.CodeTracker
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import org.opalj.value.IsIntegerValue
 import java.net.URL
 
-object AndroidDetectTapjacking extends ScanOperation {
+object AndroidDetectTapjacking extends BestPracticeScan {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     if (methodCall.name == "setFilterTouchesWhenObscured") {
       val reference = interpretation.operandsArray(pc)(0)

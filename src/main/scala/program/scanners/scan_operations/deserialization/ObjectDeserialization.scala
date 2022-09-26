@@ -1,7 +1,5 @@
-package program.scanners.scan_operations.deserialization
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.ai.AIResult
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse

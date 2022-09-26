@@ -1,22 +1,10 @@
-package program.scanners.scan_operations.crypto
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
-import org.opalj.br.instructions.LoadString
-import program.scanners.scan_operations.CodeTracker
-import org.opalj.value.IsDoubleValue
-import org.opalj.value.IsFloatValue
-import org.opalj.value.IsBooleanValue
-import org.opalj.value.IsCharValue
-import org.opalj.value.IsByteValue
-import org.opalj.value.IsIntegerValue
-import org.opalj.value.IsShortValue
-import org.opalj.value.IsLongValue
 
 object WeakIv extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {

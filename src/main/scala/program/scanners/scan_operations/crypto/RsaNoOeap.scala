@@ -1,11 +1,9 @@
-package program.scanners.scan_operations.crypto
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
 import org.opalj.br.instructions.LoadString
 import cats.instances.string

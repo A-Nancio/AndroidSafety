@@ -6,7 +6,7 @@ import java.net.URL
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.br.ObjectType
 
-object RootDetetion extends ScanOperation {
+object RootDetection extends BestPracticeScan {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
     return methodCall.name == "isJailBroken" ||
           methodCall.name == "isDeviceRooted" ||

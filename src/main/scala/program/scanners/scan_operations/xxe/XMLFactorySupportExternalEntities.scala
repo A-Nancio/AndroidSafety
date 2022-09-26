@@ -1,14 +1,10 @@
-package program.scanners.scan_operations.xxe
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
-import org.opalj.br.instructions.LoadString
-import program.scanners.scan_operations.CodeTracker
 import org.opalj.value.IsIntegerValue
 
 object XMLFactorySupportExternalEntities extends ScanOperation {

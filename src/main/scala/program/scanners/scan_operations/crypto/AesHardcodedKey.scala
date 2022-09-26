@@ -1,14 +1,11 @@
-package program.scanners.scan_operations.crypto
+package program.scanners.scan_operations
 
-import program.scanners.scan_operations.ScanOperation
 import org.opalj.br.instructions.MethodInvocationInstruction
 import org.opalj.ai.AIResult
 import org.opalj.ai.domain.l1.DefaultDomainWithCFGAndDefUse
 import java.net.URL
-import program.scanners.scan_operations.SecurityWarning
 import org.opalj.br.ObjectType
 import org.opalj.br.instructions.LoadString
-import program.scanners.scan_operations.CodeTracker
 
 object AesHardcodedKey extends ScanOperation {
   override def execute(methodCall: MethodInvocationInstruction, pc: Int, interpretation: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
@@ -29,18 +26,8 @@ object AesHardcodedKey extends ScanOperation {
           case _ => return false
         }
       }
-      return false 
-
     }
-    
-    
-    
-    
-    val XMLDecoderType = ObjectType("java/beans/XMLDecoder")
-    if (methodCall.declaringClass == XMLDecoderType && methodCall.name == "init") {
-      !CodeTracker.processLoadConstantOrigin(0, pc, interpretation)
-    }
-    return false
+    return false 
   }
   
   override def json = SecurityWarning(
