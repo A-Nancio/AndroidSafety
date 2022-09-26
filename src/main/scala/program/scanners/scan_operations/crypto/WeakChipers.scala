@@ -18,12 +18,13 @@ object WeakChipers extends ScanOperation {
       val operands = interpretation.operandsArray(pc)
       if (!operands.isEmpty) {
         val argumentOrigin = interpretation.domain.origins(operands(0))
-  
-        interpretation.code.instructions(argumentOrigin.head) match {
-          case stringLoad: LoadString => 
-            return Array("DES", "DESEDE", "RC2", "RC4", "BLOWFISH") contains 
-            stringLoad.value.toUpperCase
-          case _ => return false
+        if (!argumentOrigin.isEmpty && argumentOrigin.head > 0) {
+          interpretation.code.instructions(argumentOrigin.head) match {
+            case stringLoad: LoadString => 
+              return Array("DES", "DESEDE", "RC2", "RC4", "BLOWFISH") contains 
+              stringLoad.value.toUpperCase
+            case _ => return false
+          }
         }
       }
     }

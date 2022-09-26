@@ -19,6 +19,7 @@ object Program {
     val iterator = project.allProjectClassFiles.iterator
     while(iterator.hasNext) {
       val classFile = iterator.next
+      println("scanning " + classFile.thisType.toJava)
       //check fields
       classFile.fields foreach(field => api_analysis.scan(field, classFile.thisType.toJava))
 
@@ -38,20 +39,12 @@ object Program {
     println(code_analysis_results + "\n")
   }
 
-  def main(args: Array[String]): Unit = {
-        try {
-      if (args.size != 1) throw new Exception("Incorrect number of arguments, arguments must only be the name of the jar file no analyse")
-      
-      val jarPath = args(0)
-        implicit val project = Project(
-        new java.io.File(jarPath), // path to the JAR files/directories containing the project
-        org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
-        ) 
-      analyse(project)
-    }
-    catch
-    {
-      case e: Exception => println(e)
-    }
+  def main(args: Array[String]): Unit = {   
+    val jarPath = args(0)
+      implicit val project = Project(
+      new java.io.File(jarPath), // path to the JAR files/directories containing the project
+      org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
+      ) com.google.android.gms.measurement.internal.t9
+    analyse(project)
   }
 }

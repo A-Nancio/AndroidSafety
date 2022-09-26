@@ -15,12 +15,15 @@ object RsaNoOeap extends ScanOperation {
     if (methodCall.declaringClass == cipherObjectType && methodCall.name == "getInstance") {
       // Can not use auxiliary function for this operations
       val operands = interpretation.operandsArray(pc)
-      val argumentOrigin = interpretation.domain.origins(operands(0))
-
-      interpretation.code.instructions(argumentOrigin.head) match {
-        case stringLoad: LoadString => return stringLoad.value.contains("RSA") &&
-        stringLoad.value.contains("NoPadding")
-        case _ => return false
+      if (!operands.isEmpty) {
+        val argumentOrigin = interpretation.domain.origins(operands(0))
+        if (!argumentOrigin.isEmpty && argumentOrigin.head > 0) {
+          interpretation.code.instructions(argumentOrigin.head) match {
+            case stringLoad: LoadString => return stringLoad.value.contains("RSA") &&
+            stringLoad.value.contains("NoPadding")
+            case _ => return false
+          }
+        }
       }
     }
     return false
