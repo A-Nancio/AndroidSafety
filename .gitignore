@@ -1,4 +1,6 @@
 target/
+project/project/target/
+
 *.class
 *.log
 **.bloop
