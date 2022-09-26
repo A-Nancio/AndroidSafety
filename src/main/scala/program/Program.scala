@@ -39,13 +39,19 @@ object Program {
   }
 
   def main(args: Array[String]): Unit = {
-    
-    //open hel
-    val jarPath = "helloWorld.jar"
-    implicit val project = Project(
-      new java.io.File(jarPath), // path to the JAR files/directories containing the project
-      org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
-      ) 
-    analyse(project)
+        try {
+      if (args.size != 1) throw new Exception("Incorrect number of arguments, arguments must only be the name of the jar file no analyse")
+      
+      val jarPath = args(0)
+        implicit val project = Project(
+        new java.io.File(jarPath), // path to the JAR files/directories containing the project
+        org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
+        ) 
+      analyse(project)
+    }
+    catch
+    {
+      case e: Exception => println(e)
+    }
   }
 }
