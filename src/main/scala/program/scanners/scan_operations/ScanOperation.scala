@@ -41,7 +41,6 @@ abstract class ScanOperation {
 
   def register(classFile: String): Unit = {
     results += classFile
-    //println("Line number: " + lineNumber)
   }
   
   def json: SecurityWarning
@@ -52,17 +51,20 @@ abstract class ScanOperation {
 object CodeTracker {
   def processFieldAccessOrigin(argumentIndex: Int, instructionPC: Int, packageName: String, methodName: String,
                               methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
-    val origin = methodInfo.domain.origins(reference)
-
-    if (!origin.isEmpty) {
-      val instructionOrigin = methodInfo.code.instructions(origin.head)
-      instructionOrigin match {
-        case fielAccess: FieldAccess => {
-          val objType = ObjectType(packageName)
-          return fielAccess.declaringClass == objType && fielAccess.name == methodName
+    val operands = methodInfo.operandsArray(instructionPC)
+    if (!operands.isEmpty) {
+      val reference = operands(argumentIndex)
+      val origin = methodInfo.domain.origins(reference)
+                                
+      if (!origin.isEmpty && origin.head > 0) {
+        val instructionOrigin = methodInfo.code.instructions(origin.head)
+        instructionOrigin match {
+          case fielAccess: FieldAccess => {
+            val objType = ObjectType(packageName)
+            return fielAccess.declaringClass == objType && fielAccess.name == methodName
+          }
+          case _ => return false
         }
-        case _ => return false
       }
     }
     return false   
@@ -70,15 +72,18 @@ object CodeTracker {
 
   def processStringLoadOrigin(argumentIndex: Int, instructionPC: Int, keyWords: Array[String],
                               methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
-    val origin = methodInfo.domain.origins(reference)
-    if (!origin.isEmpty) {
-      val instructionOrigin = methodInfo.code.instructions(origin.head)
-      instructionOrigin match {
-        case stringLoad: LoadString => {
-          return keyWords contains stringLoad.value
+    val operands = methodInfo.operandsArray(instructionPC)
+    if (!operands.isEmpty) {
+      val reference = operands(argumentIndex)
+      val origin = methodInfo.domain.origins(reference)
+      if (!origin.isEmpty && origin.head > 0) {
+        val instructionOrigin = methodInfo.code.instructions(origin.head)
+        instructionOrigin match {
+          case stringLoad: LoadString => {
+            return keyWords contains stringLoad.value
+          }
+          case _ => return false
         }
-        case _ => return false
       }
     }
     return false
@@ -86,17 +91,20 @@ object CodeTracker {
 
   def processMethodCallOrigin(argumentIndex: Int, instructionPC: Int, packageName: String, fieldName: String,                            
                               methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
-    val origin = methodInfo.domain.origins(reference)
-
-    if (!origin.isEmpty) {
-      val instructionOrigin = methodInfo.code.instructions(origin.head)
-      instructionOrigin match {
-        case method: MethodInvocationInstruction => {
-          val objType = ObjectType(packageName)
-          return method.declaringClass == objType && method.name == fieldName
+    val operands = methodInfo.operandsArray(instructionPC)
+    if (!operands.isEmpty) {
+      val reference = operands(argumentIndex)
+      val origin = methodInfo.domain.origins(reference)
+      
+      if (!origin.isEmpty && origin.head > 0) {
+        val instructionOrigin = methodInfo.code.instructions(origin.head)
+        instructionOrigin match {
+          case method: MethodInvocationInstruction => {
+            val objType = ObjectType(packageName)
+            return method.declaringClass == objType && method.name == fieldName
+          }
+          case _ => return false
         }
-        case _ => return false
       }
     }
     return false                            
@@ -104,16 +112,20 @@ object CodeTracker {
 
   def processLoadConstantOrigin(argumentIndex: Int, instructionPC: Int,
                               methodInfo: AIResult{val domain: DefaultDomainWithCFGAndDefUse[URL]}): Boolean = {
-    val reference = methodInfo.operandsArray(instructionPC)(argumentIndex)
-    val origin = methodInfo.domain.origins(reference)
-
-    if (!origin.isEmpty) {
-      val instructionOrigin = methodInfo.code.instructions(origin.head)
-      instructionOrigin match {
-        case string: LoadString => return true
-        case _ => return false
+    val operands = methodInfo.operandsArray(instructionPC)
+    if (!operands.isEmpty) {
+      val reference = operands(argumentIndex)
+      val origin = methodInfo.domain.origins(reference)
+  
+      if (!origin.isEmpty && origin.head > 0) {
+        val instructionOrigin = methodInfo.code.instructions(origin.head)
+        instructionOrigin match {
+          case string: LoadString => return true
+          case _ => return false
+        }
       }
+      return true
     }
-    return true
+    return false
   }
 }
