@@ -1,119 +1,297 @@
 [{
-  "name": "Android Notifications",
-  "packages": ["android.app.NotificationManager"]
+  "name": "Loading Native Code (Shared Library)",
+  "keywords": [],
+  "methods": ["System.loadLibrary",
+              "System.load"]
 },
 {
-  "name": "Base64 Encode",
-  "packages": ["android.util.Base64.encode",
-    "android.util.Base64.encodeToString"]
+  "name": "Get System Service",
+  "keywords": [],
+  "methods": ["android.content.Context.getSystemService"]
 },
 {
-  "name": "Base64 Decode",
-  "packages": ["android.util.Base64.decode"]
-},
-{
-  "name": "Crypto",
-  "packages": ["javax.crypto.Cipher",
-  "javax.crypto.CipherInputStream",
-  "javax.crypto.CipherOutputStream",
-  "javax.crypto.NoSuchPaddingException",
-  "javax.crypto.spec.SecretKeySpec",
-  "javax.crypto.BadPaddingException",
-  "javax.crypto.IllegalBlockSizeException",
-  "javax.crypto.Mac",
-  "javax.crypto.spec.SecretKeySpec"]
+  "name": "Get Running App Processes",
+  "keywords": [],
+  "methods": ["getRunningAppProcesses"]
 },
 {
   "name": "Dynamic Class and Dexloading",
-  "packages": ["dalvik.system.DexClassLoader"]
-},{
-  "name": "Get Network Interface information",
-  "packages": ["dalvik.system.DexClassLoader"]
-},
-{
-  "name": "Get WiFi Details", 
-  "packages": [
-    "android.net.wifi.WifiManager",
-    "android.net.wifi.WifiManager.getConnectionInfo"]
-},
-{ 
-  "name": "GPS Location",
-  "packages": ["android.location.Geocoder",
-    "android.location.Location",
-    "android.location.LocationManager"]
-},
-{
-  "name": "HTTP Connection",
-  "packages": [
-    "java.net.HttpURLConnection",
-    "com.adobe.air.wand.connection.Connection",
-    "org.apache.http.client.methods.HttpGet",
-    "org.apache.http.conn.util.InetAddressUtils",
-    "org.apache.http.impl.client.DefaultHttpClient"]
-},
-{
-  "name": "Inter Process Communication",
-  "packages": [
-    "android.content.Intent",
-    "android.content.IntentFilter",
-    "android.app.IntentService",
-    "android.os.IBinder",
-    "android.app.PendingIntent"]
+  "keywords": ["dalvik.system.DexClassLoader",
+              "java.security.ClassLoader",
+              "java.net.URLClassLoader",
+              "java.security.SecureClassLoader"],
+  "methods": []
 },
 {
   "name": "Java Reflection",
-  "packages": [
-    "java.lang.reflect.Field",
-    "java.lang.reflect.Method"]
+  "keywords": ["java.lang.reflect.Method",
+              "java.lang.reflect.Field"],
+  "methods": ["Class.forName"]
 },
 {
- "name": "Kill Process",
- "packages": ["android.os.Process.killProcess"]
-},
-{
-  "name": "Loading Native Code (Shared Library)",
-  "packages": ["Java.Lang.System.load"]
-},
-{
-  "name": "Local File I/O Operations",
-  "packages": ["android.content.SharedPreferences.Editor"]
-},
-{
-  "name": "Query Database of SMS, Contacts, etc",
-  "packages": ["android.content.ContentResolver"]
+  "name": "Crypto",
+  "keywords": ["javax.crypto",
+              "kalium.crypto",
+              "bouncycastle.crypto"],
+  "methods": []
 },
 {
   "name": "Starting Activity",
-  "packages": ["android.content.Context.startActivity"]
+  "keywords": [],
+  "methods": ["startActivity",
+              "startActivityForResult"]
 },
 {
   "name": "Starting Service",
-  "packages": [
-    "android.content.Context.startService",
-    "android.content.Context.unbindService"]
+  "keywords": [],
+  "methods": ["startService",
+              "bindService"]
+},
+{
+  "name": "Sending Broadcast",
+  "keywords": [],
+  "methods": ["sendBroadcast",
+              "sendOrderedBroadcast",
+              "sendStickyBroadcast"]
+},
+{
+  "name": "Local File I/O Operations",
+  "keywords": ["OpenFileOutput",
+              "getSharedPreferences",
+              "SharedPreferences.Editor",
+              "getCacheDir",
+              "getExternalStorageState",
+              "openOrCreateDatabase"],
+  "methods": []
+},
+{
+  "name": "Inter Process Communication",
+  "keywords": ["IRemoteService",
+              "IRemoteService.Stub",
+              "IBinder",
+              "Intent"],
+  "methods": []
+},
+{
+  "name": "HTTP Requests, Connections and Sessions",
+  "keywords": ["http.client.HttpClient",
+              "net.http.AndroidHttpClient",
+              "http.impl.client.AbstractHttpClient"],
+  "methods": []
+},
+{
+  "name": "HTTP Connection",
+  "keywords": [],
+  "methods": ["HttpURLConnection|org.apache.http.openConnection",
+              "HttpURLConnection|org.apache.http.connect",
+              "HttpURLConnection|org.apache.http.HttpRequest"]
+},
+{
+  "name": "Content Provider",
+  "keywords": ["android.content.ContentProvider"],
+  "methods": []
+},
+{
+  "name": "Obfuscation",
+  "keywords": ["utils.AESObfuscator"],
+  "methods": []
+},
+{
+  "name": "Execute OS Command",
+  "keywords": [],
+  "methods": ["java.lang.Runtime.getRuntime",
+              "java.lang.Runtime.exec"]
+},
+{
+  "name": "Kill Process",
+  "keywords": [],
+  "methods": ["Process.killProcess",
+              "killBackgroundProcesses"]
+},
+{
+  "name": "Android Keystore",
+  "keywords": ["security.KeyStore"],
+  "methods": ["Keystore.getInstance"]
 },
 {
   "name": "TCP Server Socket",
-  "packages": ["java.net.ServerSocket"]
+  "keywords": ["net.ServerSocket"],
+  "methods": []
 },
 {
-  "name": "TCP Socket",
- "packages": [
-    "java.net.ServerSocket", 
-    "java.net.Socket",
-    "java.net.InetSocketAddress",
-    "java.net.SocketException",  
-    "org.java_websocket.WebSocket",
-    "org.java_websocket.server.WebSocketServer"]
+  "name": "UDP Datagram Packet",
+  "keywords": ["net.DatagramPacket"],
+  "methods": []
+},
+{
+  "name": "UDP Datagram Socket",
+  "keywords": ["net.DatagramSocket"],
+  "methods": []
+},
+{
+  "name": "WebView JavaScript Interface",
+  "keywords": [],
+  "methods": ["android.webkit.WebView.addJavascriptInterface"]
 },
 {
   "name": "WebView GET Request",
-  "packages": [
-    "android.webkit.SslErrorHandler",
-    "android.webkit.URLUtil",
-    "android.webkit.ValueCallback",
-    "android.webkit.WebChromeClient",
-    "android.webkit.WebSettings",
-    "android.webkit.WebView",
-    "android.webkit.WebViewClient"]
+  "keywords": [],
+  "methods": ["android.webkit.WebView.loadData"]
+},
+{
+  "name": "WebView POST Request",
+  "keywords": [],
+  "methods": ["android.webkit.WebView.postUrl"]
+},
+{
+  "name": "Android Notifications",
+  "keywords": [],
+  "methods": ["app.NotificationManager.notify"]
+},
+{
+  "name": "Get Cell Information",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getAllCellInfo"]
+},
+{
+  "name": "Get Cell Location",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getCellLocation"]
+},
+{
+  "name": "Get Subscriber ID",
+  "keywords": ["telephony.TelephonyManager.getSubscriberId"],
+  "methods": []
+},
+{
+  "name": "Get Device ID, IMEI,MEID/ESN etc",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getDeviceId",
+              "telephony.TelephonyManager.getImei",
+              "telephony.TelephonyManager.getMeid"]
+},
+{
+  "name": "Get Software Version, IMEI/SV etc",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getDeviceSoftwareVersion"]
+},
+{
+  "name": "Get SIM Serial Number",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getSimSerialNumber"]
+},
+{
+  "name": "Get SIM Provider Details",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getSimOperator"]
+},
+{
+  "name": "Get SIM Operator Name",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getSimOperatorName"]
+},
+{
+  "name": "Get Phone Number",
+  "keywords": [],
+  "methods": ["telephony.TelephonyManager.getLine1Number"]
+},
+{
+  "name": "Query Database of SMS, Contacts etc",
+  "keywords": [],
+  "methods": ["content.ContentResolver.query"]
+},
+{
+  "name": "Hide application icon",
+  "keywords": ["android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED"],
+  "methods": []
+},
+{
+  "name": "Send SMS",
+  "keywords": [],
+  "methods": ["telephony.SmsManager.sendMultipartTextMessage",
+              "telephony.SmsManager.sendTextMessage"]
+},
+{
+  "name": "URL Connection to file/http/https/ftp/jar",
+  "keywords": [],
+  "methods": ["net.URLConnection.openConnection",
+              "net.URLConnection.connect"]
+},
+{
+  "name": "JAR URL Connection",
+  "keywords": ["net.JarURLConnection"],
+  "methods": []
+},
+{
+  "name": "HTTPS Connection",
+  "keywords": ["javax.net.ssl.HttpsURLConnection"],
+  "methods": ["javax.net.ssl.HttpsURLConnection.connect"]
+},
+{
+  "name": "Set or Read Clipboard data",
+  "keywords": ["content.ClipboardManager.CLIPBOARD_SERVICE",
+              "content.ClipboardManager.ClipboardManager"],
+  "methods": []
+},
+{
+  "name": "Base64 Encode",
+  "keywords": [],
+  "methods": ["android.util.Base64.encodeToString",
+              "android.util.Base64.encode"]
+},
+{
+  "name": "Base64 Decode",
+  "keywords": [],
+  "methods": ["android.util.Base64.decodeToString",
+              "android.util.Base64.decode"]
+},
+{
+  "name": "Message Digest",
+  "keywords": ["java.security.MessageDigest",
+              "java.security.MessageDigestSpi"],
+  "methods": []
+},
+{
+  "name": "GPS Location",
+  "keywords": [],
+  "methods": ["android.location.LocationManager.getLastKnownLocation",
+              "android.location.LocationManager.requestLocationUpdates",
+              "android.location.Location.getLatitude",
+              "android.location.Location.getLongitude"]
+},
+{
+  "name": "Get Installed Applications",
+  "keywords": [],
+  "methods": ["android.content.pm.PackageManager.queryIntentActivities",
+              "android.content.pm.PackageManager.getInstalledApplications",
+              "android.content.pm.PackageManager.getInstalledPackages"]
+},
+{
+  "name": "Get WiFi Details",
+  "keywords": [],
+  "methods": ["wifi.WifiManager.getConnectionInfo",
+              "android.net.wifi.WifiInfo.getSSID",
+              "wifi.WifiManager.getConfiguredNetworks",
+              "android.net.wifi.WifiInfo.getNetworkId",
+              "android.net.wifi.WifiInfo.getIpAddress",
+              "android.net.wifi.WifiInfo.getMacAddress"]
+},
+{
+  "name": "Get Network Interface information",
+  "keywords": [],
+  "methods": ["java.net.NetworkInterface.getNetworkInterfaces",
+              "java.net.NetworkInterface.getInetAddresses",
+              "java.net.InetAddress.getHostAddress"]
+  
+},
+{
+  "name": "Get Android Advertising ID",
+  "keywords": [],
+  "methods": ["AdvertisingIdClient.getAdvertisingIdInfo",
+              "AdvertisingIdInfo.getId"]
+},
+{
+  "name": "Certificate Handling",
+  "keywords": [".SSLSocketFactory"],
+  "methods": []
 }]

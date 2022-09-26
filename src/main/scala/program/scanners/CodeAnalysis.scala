@@ -67,7 +67,7 @@ class CodeAnalysis(project: Project[URL]) {
       }
   }
 
-  def export(): Json = {
+  def export: Json = {
     var output: Set[SecurityWarning] = Set[SecurityWarning]()
     
     methodScanOperations foreach 
