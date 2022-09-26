@@ -16,10 +16,7 @@ object AndroidCertificateTransparency extends BestPracticeScan {
   
   
   override def json = SecurityWarning(
-    """This app does not enforce TLS Certificate Transparency that helps to
-      detect SSL certificates that have been mistakenly issued by a certificate
-      authority or maliciously acquired from an otherwise unimpeachable
-      certificate authority.""",
+    """This app does not enforce TLS Certificate Transparency that helps to detect SSL certificates that have been mistakenly issued by a certificate authority or maliciously acquired from an otherwise unimpeachable certificate authority.""",
     "INFO",
     "cwe-295",
     "m3",

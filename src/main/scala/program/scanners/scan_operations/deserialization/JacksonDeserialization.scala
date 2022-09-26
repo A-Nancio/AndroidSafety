@@ -13,10 +13,7 @@ object JacksonDeserialization extends ScanOperation {
   }
 
   override def json = SecurityWarning(
-    """The app uses jackson deserialization library. Deserialization of untrusted
-      input can result in arbitrary code execution. Consider using HMACs to sign
-      the data stream to make sure it is not tampered with, or consider only 
-      transmitting object fields and populating a new object.""",
+    """The app uses jackson deserialization library. Deserialization of untrusted input can result in arbitrary code execution. Consider using HMACs to sign the data stream to make sure it is not tampered with, or consider only transmitting object fields and populating a new object.""",
       "ERROR",
       "cwe-502",
       "m1",

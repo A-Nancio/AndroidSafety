@@ -25,8 +25,7 @@ object WeakHashes extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """Weak Hash algorithm used. The hash algorithm is known to have hash
-      collisions.""",
+    """Weak Hash algorithm used. The hash algorithm is known to have hash collisions.""",
     "ERROR",
     "cwe-327",
     "m5",

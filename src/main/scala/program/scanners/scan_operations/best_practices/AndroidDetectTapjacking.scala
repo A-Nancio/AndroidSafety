@@ -23,9 +23,7 @@ object AndroidDetectTapjacking extends BestPracticeScan {
   }
   
   override def json = SecurityWarning(
-    """This app does not have capabilities to prevent tapjacking attacks. An
-      attacker can hijack the user's taps and tricks him into performing some
-      critical operations that he did not intend to.""",
+    """This app does not have capabilities to prevent tapjacking attacks. An attacker can hijack the user's taps and tricks him into performing some critical operations that he did not intend to.""",
     "INFO",
     "cwe-200",
     "m1",

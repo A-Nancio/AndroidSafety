@@ -23,8 +23,7 @@ object WebviewDebugging extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """Remote WebView debugging is enabled. This allows an attacker with
-      debugging access to interact with the webview and steal or corrupt data.""",
+    """Remote WebView debugging is enabled. This allows an attacker with debugging access to interact with the webview and steal or corrupt data.""",
     "ERROR",
     "cwe-489",
     "m1",

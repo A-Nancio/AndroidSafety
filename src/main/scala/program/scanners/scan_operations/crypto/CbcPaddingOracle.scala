@@ -26,8 +26,7 @@ object CbcPaddingOracle extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """The App uses the encryption mode CBC with PKCS5/PKCS7 padding. This
-      configuration is vulnerable to padding oracle attacks.""",
+    """The App uses the encryption mode CBC with PKCS5/PKCS7 padding. This configuration is vulnerable to padding oracle attacks.""",
     "ERROR",
     "cwe-649",
     "m5",

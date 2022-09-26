@@ -31,9 +31,7 @@ object RsaNoOeap extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """This App uses RSA Crypto without OAEP padding. The purpose of the padding
-      scheme is to prevent a number of attacks on RSA that only work when the
-      encryption is performed without padding.""",
+    """This App uses RSA Crypto without OAEP padding. The purpose of the padding scheme is to prevent a number of attacks on RSA that only work when the encryption is performed without padding.""",
     "ERROR",
     "cwe-780",
     "m5",

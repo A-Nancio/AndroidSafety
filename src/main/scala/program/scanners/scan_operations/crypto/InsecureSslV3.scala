@@ -14,7 +14,7 @@ object InsecureSslV3 extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    "The App uses an insecure Random Number Generator.",
+    "SSLv3 is insecure and has multiple known vulnerabilities.",
     "WARNING",
     "cwe-330",
     "m5",

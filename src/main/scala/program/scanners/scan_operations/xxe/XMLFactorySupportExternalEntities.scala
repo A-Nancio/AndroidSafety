@@ -24,9 +24,7 @@ object XMLFactorySupportExternalEntities extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """XML external entities are enabled for this XMLInputFactory. This is
-      vulnerable to XML external entity attacks. Disable external entities by
-      setting "javax.xml.stream.isSupportingExternalEntities" to false.""",
+    """XML external entities are enabled for this XMLInputFactory. This is vulnerable to XML external entity attacks. Disable external entities by setting "javax.xml.stream.isSupportingExternalEntities" to false.""",
     "ERROR",
     "cwe-611",
     "m8",

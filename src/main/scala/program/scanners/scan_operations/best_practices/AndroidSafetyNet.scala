@@ -21,10 +21,7 @@ object AndroidSafetyNet extends BestPracticeScan {
   }
   
   override def json = SecurityWarning(
-    """This app does not uses SafetyNet Attestation API that provides
-      cryptographically-signed attestation, assessing the device's integrity.
-      This check helps to ensure that the servers are interacting with the
-      genuine app running on a genuine Android device. """,
+    """This app does not uses SafetyNet Attestation API that provides cryptographically-signed attestation, assessing the device's integrity. This check helps to ensure that the servers are interacting with the genuine app running on a genuine Android device. """,
     "INFO",
     "cwe-353",
     "m8",

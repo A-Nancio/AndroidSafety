@@ -13,8 +13,7 @@ object WeakKeySize extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """Cryptographic implementations with insufficient key length is susceptible
-      to bruteforce attacks.""",
+    """Cryptographic implementations with insufficient key length is susceptible to bruteforce attacks.""",
     "ERROR",
     "cwe-326",
     "m5",

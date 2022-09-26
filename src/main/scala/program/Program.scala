@@ -9,11 +9,11 @@ import io.circe.parser._
 import scala.io.Source
 import java.net.URL
 import program.scanners._
-import java.io.File
+import java.io._  
 
 object Program {
   
-  def analyse(project: Project[URL]): Unit = {
+  def analyse(project: Project[URL], jarPath: String): Unit = {
     val code_analysis = new CodeAnalysis(project)
     val api_analysis = AndroidApiAnalysis
     val iterator = project.allProjectClassFiles.iterator
@@ -32,11 +32,17 @@ object Program {
     
     println("――――――――――――――――― API LIST RESULTS ―――――――――――――――――")
     val api_list_results = api_analysis.export
-    println(api_list_results)
+    val api_list_writer = new PrintWriter(new File(jarPath + "_api_list.json"))
+    println(api_list_results.toString)
+    api_list_writer.write(api_list_results.toString)
+    api_list_writer.close
 
     println("――――――――――――――――― CODE ANALYSIS RESULTS ―――――――――――――――――")
     val code_analysis_results = code_analysis.export
-    println(code_analysis_results + "\n")
+    val code_analysis_writer = new PrintWriter(new File(jarPath + "_code_analysis.json"))
+    println(code_analysis_results.toString)
+    code_analysis_writer.write(code_analysis_results.toString)
+    code_analysis_writer.close
   }
 
   def main(args: Array[String]): Unit = {   
@@ -44,7 +50,7 @@ object Program {
       implicit val project = Project(
       new java.io.File(jarPath), // path to the JAR files/directories containing the project
       org.opalj.bytecode.RTJar // predefined path(s) to the used libraries
-      ) com.google.android.gms.measurement.internal.t9
-    analyse(project)
+      )
+    analyse(project, jarPath)
   }
 }

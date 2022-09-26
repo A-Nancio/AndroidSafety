@@ -13,8 +13,7 @@ object WebviewExternalStorage extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """WebView load files from external storage. Files in external storage can be
-      modified by any application.""",
+    """WebView load files from external storage. Files in external storage can be modified by any application.""",
     "ERROR",
     "cwe-749",
     "m1",

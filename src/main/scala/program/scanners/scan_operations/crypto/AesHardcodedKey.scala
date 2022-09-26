@@ -31,9 +31,7 @@ object AesHardcodedKey extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """XMLDecoder should not be used to parse untrusted data.
-      Deserializing user input can lead to arbitrary code execution.
-      Use an alternative and explicitly disable external entities.""",
+    """XMLDecoder should not be used to parse untrusted data. Deserializing user input can lead to arbitrary code execution. Use an alternative and explicitly disable external entities.""",
     "WARNING",
     "cwe-611",
     "m8",

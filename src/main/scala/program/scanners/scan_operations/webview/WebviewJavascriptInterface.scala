@@ -14,9 +14,7 @@ object WebviewJavascriptInterface extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """Ensure that javascript interface is implemented securely.
-      Execution of user controlled code in WebView is a 
-      critical Security issue.""",
+    """Ensure that javascript interface is implemented securely. Execution of user controlled code in WebView is a critical Security issue.""",
     "WARNING",
     "cwe-749",
     "m1",

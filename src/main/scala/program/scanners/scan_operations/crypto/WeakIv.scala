@@ -32,10 +32,7 @@ object WeakIv extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """The App may use weak IVs like "0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" or
-      "0x01,0x02,0x03,0x04,0x05,0x06,0x07". Not using a random IV makes the
-      resulting ciphertext much more predictable and susceptible to a dictionary
-      attack.""",
+    """The App may use weak IVs like "0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" or "0x01,0x02,0x03,0x04,0x05,0x06,0x07". Not using a random IV makes the resulting ciphertext much more predictable and susceptible to a dictionary attack.""",
     "WARNING",
     "cwe-1204",
     "m5",

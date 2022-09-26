@@ -18,9 +18,7 @@ object Aes_CbsMode extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """The App uses ECB mode in Cryptographic encryption algorithm. ECB mode is
-      known to be weak as it results in the same ciphertext for identical blocks
-      of plaintext.""",
+    """The App uses ECB mode in Cryptographic encryption algorithm. ECB mode is known to be weak as it results in the same ciphertext for identical blocks of plaintext.""",
     "ERROR",
     "cwe-327",
     "m5",
@@ -51,9 +49,7 @@ object Aes_CbsModeDefault extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """Calling Cipher.getInstance("AES") will return AES ECB mode by default. ECB
-      mode is known to be weak as it results in the same ciphertext for
-      identical blocks of plaintext.""",
+    """Calling Cipher.getInstance("AES") will return AES ECB mode by default. ECB mode is known to be weak as it results in the same ciphertext for identical blocks of plaintext.""",
     "ERROR",
     "cwe-327",
     "m5",

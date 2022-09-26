@@ -33,8 +33,7 @@ object WeakChipers extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """Weak encryption algorithm identified. This algorithm is vulnerable to
-      cryptographic attacks.""",
+    """Weak encryption algorithm identified. This algorithm is vulnerable to cryptographic attacks.""",
     "ERROR",
     "cwe-327",
     "m5",

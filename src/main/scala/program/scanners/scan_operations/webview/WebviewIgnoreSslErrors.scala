@@ -13,9 +13,7 @@ object WebviewIgnoreSslErrors extends ScanOperation {
   
   
   override def json = SecurityWarning(
-    """Insecure WebView Implementation. WebView ignores SSL Certificate errors
-      and accept any SSL Certificate. This application is vulnerable to MITM
-      attacks.""",
+    """Insecure WebView Implementation. WebView ignores SSL Certificate errors and accept any SSL Certificate. This application is vulnerable to MITM attacks.""",
     "ERROR",
     "cwe-295",
     "m3",

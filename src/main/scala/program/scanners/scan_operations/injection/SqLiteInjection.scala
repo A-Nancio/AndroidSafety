@@ -16,9 +16,7 @@ object SqLiteInjection extends ScanOperation {
   }
   
   override def json = SecurityWarning(
-    """App uses SQLite Database and execute raw SQL query. Untrusted user input
-      in raw SQL queries can cause SQL Injection. Also sensitive information
-      should be encrypted and written to the database.""",
+    """App uses SQLite Database and execute raw SQL query. Untrusted user input in raw SQL queries can cause SQL Injection. Also sensitive information should be encrypted and written to the database.""",
     "WARNING",
     "cwe-78",
     "m7",
