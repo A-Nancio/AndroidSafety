@@ -33,14 +33,14 @@ object Program {
     println("――――――――――――――――― API LIST RESULTS ―――――――――――――――――")
     val api_list_results = api_analysis.export
     val api_list_writer = new PrintWriter(new File(jarPath + "_api_list.json"))
-    println(api_list_results.toString)
+    println(api_list_results)
     api_list_writer.write(api_list_results.toString)
     api_list_writer.close
 
     println("――――――――――――――――― CODE ANALYSIS RESULTS ―――――――――――――――――")
     val code_analysis_results = code_analysis.export
     val code_analysis_writer = new PrintWriter(new File(jarPath + "_code_analysis.json"))
-    println(code_analysis_results.toString)
+    println(code_analysis_results)
     code_analysis_writer.write(code_analysis_results.toString)
     code_analysis_writer.close
   }
